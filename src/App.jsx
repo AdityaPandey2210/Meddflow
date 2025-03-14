@@ -1,3 +1,4 @@
+import './App.css';
 import { useEffect } from 'react';
 import { Home } from './Components/home';
 import { About } from './Components/about';
@@ -18,12 +19,12 @@ function AppContent() {
       <ScrollToTop />
       <Header />
       <Switch>
-        <Route exact path="/" render={() => { return (<Home />) }}></Route>
-        <Route exact path="/about" render={() => { return (<About />) }}></Route>
-        <Route exact path="/terms" render={() => { return (<Terms />) }}></Route>
-        <Route exact path="/contact" render={() => { return (<Contact />) }}></Route>
-        <Route exact path="/privacy" render={() => { return (<Privacy />) }}></Route>
-        <Route exact path="/consultancy" render={() => { return (<Consultancy />) }}></Route>
+        <Route exact path="/" render={() => { return <Home /> }}></Route>
+        <Route exact path="/about" render={() => { return <About /> }}></Route>
+        <Route exact path="/terms" render={() => { return <Terms /> }}></Route>
+        <Route exact path="/contact" render={() => { return <Contact /> }}></Route>
+        <Route exact path="/privacy" render={() => { return <Privacy /> }}></Route>
+        <Route exact path="/consultancy" render={() => { return <Consultancy /> }}></Route>
         <Route component={PageNotFound} />
       </Switch>
       <Footer />

@@ -57,7 +57,13 @@ function ContactForm() {
                         <div className="flex flex-wrap -m-2">
                             <div className="p-2 w-1/2">
                                 <div className="relative">
-                                    <label for="name" className="leading-7 text-sm text-gray-600">Name</label>
+                                    <label for="name" className="leading-7 text-sm text-gray-600">First Name</label>
+                                    <input type="text" id="name" name="name" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                </div>
+                            </div>
+                            <div className="p-2 w-1/2">
+                                <div className="relative">
+                                    <label for="name" className="leading-7 text-sm text-gray-600">Last Name</label>
                                     <input type="text" id="name" name="name" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                 </div>
                             </div>
@@ -69,14 +75,8 @@ function ContactForm() {
                             </div>
                             <div className="p-2 w-1/2">
                                 <div className="relative">
-                                    <label for="name" className="leading-7 text-sm text-gray-600">Name</label>
-                                    <input type="text" id="name" name="name" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                </div>
-                            </div>
-                            <div className="p-2 w-1/2">
-                                <div className="relative">
-                                    <label for="email" className="leading-7 text-sm text-gray-600">Email</label>
-                                    <input type="email" id="email" name="email" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    <label for="phone" className="leading-7 text-sm text-gray-600">Phone</label>
+                                    <input type="phone" id="phone" name="phone" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                 </div>
                             </div>
                             <div className="p-2 w-full">

@@ -37,23 +37,5 @@ export function Header() {
                 </div>
             </div>
         </header>
-        // <header className="container mx-auto flex flex-wrap p-7 flex-col md:flex-row justify-between items-center">
-        //     <Link to='/'><img className="w-auto h-12" src={Logo} alt="" /></Link>
-        //     <nav className="mr-1 md:ml-auto flex flex-wrap items-center text-base justify-center">
-        //         <Link to='' className="mr-5 hover:text-gray-900">Home</Link>
-        //         <Link to='' className="mr-5 hover:text-gray-900">Products</Link>
-        //         <Link to='' className="mr-5 hover:text-gray-900">Services</Link>
-        //         <Link to='' className="mr-5 hover:text-gray-900">Use Cases</Link>
-        //     </nav>
-        //     <div className="md:hidden">
-        //         <button type="button" className="text-gray-500 hover:text-black focus:outline-none focus:text-black" aria-label="toggle menu" onClick={toggleMenu}>
-        //             {isMenuOpen
-        //                 ? (<svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>)
-        //                 : (<svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" /></svg>)
-        //             }
-        //         </button>
-        //     </div>
-        //     <button className="inline-flex items-center bg-gradient-to-r from-[#159957] to-[#155799] border-0 px-5 py-3 focus:outline-none rounded-lg text-white mt-4 md:mt-0">Contact Us</button>
-        // </header>
     );
 }

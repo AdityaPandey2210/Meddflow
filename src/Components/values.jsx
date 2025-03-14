@@ -5,6 +5,22 @@ export const choiceFeatures = [
     { title: 'Commitment to Quality', description: 'We ensure quality at every stage, following industry standards, securing data, and providing seamless integrations for efficiency.', icon: <i className="bi bi-file-earmark-text text-3xl"></i> },
 ];
 
+export const questions = [
+    { id: 1, text: "How Often You Use AI for Billing?" },
+    { id: 2, text: "Another question here?" },
+    { id: 3, text: "Yet another question?" },
+    { id: 4, text: "Final question?" },
+];
+
+export const answerPoints = {
+    "Always": 10,
+    "Never": 0,
+    "Sometimes": 5,
+    "Occasionally": 3
+};
+
+export const answers = ["Always", "Never", "Sometimes", "Occasionally"];
+
 export const testimonials = [
     {
         quote: "Meddflow excels at clinic notes. I had an impressive result with a complex cancer mastectomy discussion in Spanish—the note was flawless. It also handles operative dictations effortlessly. Even with background noise and AirPods, my recording was perfect. Truly mind-blowing!",

@@ -1,30 +1,14 @@
-import { ContactTile } from './widgets';
 import { contactDetails } from './values';
 import ContactBanner from '../assets/contact.png';
+import { ContactTile, HeroSection } from './widgets';
 
 export function Contact() {
     return (
         <>
-            <Hero />
+            <HeroSection image={ContactBanner} title={'Contact Us'} description={'Got a question? We had love to hear from you.\n Send us a message and we will respond as soon as possible.'} />
             <ContactDetails />
             <ContactForm />
         </>
-    )
-}
-
-function Hero() {
-    return (
-        <div className="relative w-full h-[35rem] overflow-hidden">
-            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${ContactBanner})` }}></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#155799]/65 to-[#159957]/65"></div>
-            <div className="relative z-10 flex items-center justify-center h-full">
-                <div className="text-center">
-                    <h1 className="mt-2 text-2xl font-bold text-white md:text-5xl">Contact Us</h1>
-                    <p className="mt-3 font-medium text-gray-200">Got a question? We had love to hear from you. Send us<br /> a message and we will respond as soon as possible.</p>
-                </div>
-            </div>
-        </div>
-
     )
 }
 

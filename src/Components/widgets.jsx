@@ -85,10 +85,59 @@ export function ContactTile({ heading, value, icon }) {
     )
 }
 
+export function HeroSection({ image, title, description, isButtonAvailable }) {
+    return (
+        <div className="relative w-full h-[35rem] overflow-hidden">
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#155799]/65 to-[#159957]/65"></div>
+            <div className="relative z-10 flex items-center justify-center h-full">
+                <div className="text-center">
+                    <h1 className="mt-2 text-2xl font-bold text-white md:text-5xl">{title}</h1>
+                    <p className="mt-3 font-medium text-gray-200">{description}</p>
+                    {isButtonAvailable
+                        ? <button className="mt-7 text-teal-700 bg-white border-0 py-2 px-12 focus:outline-none rounded text-lg">Subscribe to Us</button>
+                        : <></>
+                    }
+                </div>
+            </div>
+        </div>
+
+    )
+}
+
 export function FooterSection({ list }) {
     return (
         <ul className="space-y-3">
             {list.map((element, index) => (<li key={index}><Link to={`/${element.route}`} className="text-sm hover:text-blue-400">{element.title}</Link></li>))}
         </ul>
+    )
+}
+
+export function CTATile({ image, title, description }) {
+    return (
+        <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
+            <div className="rounded-lg h-64 overflow-hidden">
+                <img className="object-cover object-center h-full w-full" src={image} alt="" />
+            </div>
+            <h2 className="text-xl font-medium title-font text-gray-900 mt-5">{title}</h2>
+            <p className="text-base leading-relaxed mt-2">{description}</p>
+            <button className="mt-5 inline-flex items-center bg-gradient-to-r from-[#159957] to-[#155799] border-0 px-5 py-3 focus:outline-none rounded-lg text-white">Read More</button>
+        </div>
+    )
+}
+
+export function WorkingSteps({ stepNo, icon, title, description }) {
+    return (
+        <div className="p-4 md:w-1/3 flex flex-col">
+            <div className="px-2.5 flex justify-between">
+                {icon}
+                <h1 className="text-xl font-semibold p-2 text-end">{stepNo}</h1>
+            </div>
+            <hr className="mx-3" />
+            <div className="text-start sm:mb-0 mb-6">
+                <h2 className="text-xl font-medium title-font text-gray-900 mt-5">{title}</h2>
+                <p className="text-base leading-relaxed mt-2">{description}</p>
+            </div>
+        </div>
     )
 }

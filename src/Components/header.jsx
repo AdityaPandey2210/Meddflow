@@ -8,14 +8,14 @@ export function Header() {
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const buttonNavigate = () => { history.push('/contact'); }
     return (
-        <header className={`relative p-7`}>
+        <header className={`relative px-7 py-6`}>
             <div className="mx-auto flex justify-between items-center">
                 <Link to="/"><img className="w-auto h-10" src={Logo} alt="" /></Link>
                 <div className="hidden md:flex items-center">
-                    <Link to="/product" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Product</Link>
-                    <Link to="/" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Resources</Link>
-                    <Link to="/" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Download</Link>
-                    <Link to="/pricing" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Pricing</Link>
+                    <Link to="/" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Home</Link>
+                    <Link to="/product" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Products</Link>
+                    <Link to="/services" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Serivces</Link>
+                    <Link to="/usecases" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Use Cases</Link>
                     <button onClick={buttonNavigate} className="inline-flex items-center bg-gradient-to-r from-[#159957] to-[#155799] border-0 px-5 py-3 focus:outline-none rounded-lg text-white mt-4 md:mt-0">Contact Us</button>
                 </div>
                 <div className="md:hidden">
@@ -29,10 +29,10 @@ export function Header() {
             </div>
             <div className={`md:hidden absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0 opacity-100 bg-white' : 'opacity-0 -translate-x-full'}`}>
                 <div className="flex flex-col px-2 -mx-4">
-                    <Link to="/product" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Product</Link>
-                    <Link to="/" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Resources</Link>
-                    <Link to="/" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Download</Link>
-                    <Link to="/pricing" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Pricing</Link>
+                    <Link to="/" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Home</Link>
+                    <Link to="/product" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Products</Link>
+                    <Link to="/services" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Serivces</Link>
+                    <Link to="/usecases" className={`px-2.5 py-2 text-lg transition-colors duration-300 transform rounded-md hover:bg-gray-100 hover:text-black md:mx-2`}>Use Cases</Link>
                     <button onClick={buttonNavigate} className="inline-flex items-center bg-gradient-to-r from-[#159957] to-[#155799] border-0 px-5 py-3 focus:outline-none rounded-lg text-white mt-4 md:mt-0">Contact Us</button>
                 </div>
             </div>

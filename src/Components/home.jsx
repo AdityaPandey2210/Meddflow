@@ -242,7 +242,7 @@ function Testimonials() {
     );
 }
 
-function FAQs() {
+export function FAQs() {
     const contentRefs = useRef([]);
     const [openFAQ, setOpenFAQ] = useState(0);
     useEffect(() => {
@@ -252,7 +252,7 @@ function FAQs() {
         setOpenFAQ(openFAQ === index ? null : index);
     };
     return (
-        <div className="w-full max-w-4xl mx-auto px-4 py-12 bg-gray-50">
+        <div className="w-full max-w-4xl mx-auto py-12 bg-gray-50">
             <div className="text-center mb-10">
                 <p className="text-green-600 font-medium uppercase mb-1">FAQS</p>
                 <h2 className="text-2xl font-bold">

@@ -1,3 +1,7 @@
+import Image1 from '../assets/cta.png';
+import Image2 from '../assets/emr.png';
+import Image0 from '../assets/cta1.png';
+
 export const choiceFeatures = [
     { title: 'Expertise Backed by Experience', description: 'With vast experience in healthcare technology, our team delivers deep industry insights and tailored solutions to meet your needs.', icon: <i className="bi bi-person-check-fill text-3xl"></i> },
     { title: 'Personalized Health Tech Solutions', description: 'Understanding that every provider is unique, we create custom solutions that boost efficiency, enhance care, and drive better results.', icon: <i className="bi bi-phone text-3xl"></i> },
@@ -115,4 +119,16 @@ export const company = [
     { title: 'About', route: '' },
     { title: 'Careers', route: '' },
     { title: 'Contact', route: 'contact' },
+];
+
+export const service_ctas = [
+    { title: 'Seamless EHR/EMR Integration & Migration', description: 'Seamlessly integrate and migrate electronic health records with minimal disruption. Ensure smooth data transfer while maintaining accuracy and compliance. Enhance interoperability by connecting with existing healthcare systems. Reduce manual data entry and improve efficiency across hospitals and clinics.', image: Image0 },
+    { title: 'AI-Driven Data Analytics for Better Decision-Making', description: 'Harness the power of AI to transform raw medical data into actionable insights. Identify patterns and trends to improve diagnosis and treatment planning. Use predictive analytics for early disease detection and risk assessment. Enhance operational efficiency by analyzing workflow bottlenecks.', image: Image1 },
+    { title: 'Automation of Administrative & Clinical Workflows', description: 'Streamline healthcare operations by automating repetitive administrative tasks. Reduce paperwork and human errors with digitized workflows. Automate appointment scheduling, patient reminders, and billing processes. Enhance clinical efficiency with automated prescription management and reporting.', image: Image2 },
+];
+
+export const workingSteps = [
+    { title: 'Patient Details', description: 'Add patient, referral and scan details on the Dashboard.', icon: <i class="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-xl bi bi-person-vcard"></i> },
+    { title: 'Scan Process', description: 'We will contact the patient and handle everything - scheduling, reports, customer service.', icon: <i class="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-xl bi bi-calendar-check"></i> },
+    { title: 'Updates and Scan Results', description: 'You can check updates and scan results on the dashboard.', icon: <i class="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-xl bi bi-text-left"></i> },
 ];

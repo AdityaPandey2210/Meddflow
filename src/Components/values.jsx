@@ -128,7 +128,35 @@ export const service_ctas = [
 ];
 
 export const workingSteps = [
-    { title: 'Patient Details', description: 'Add patient, referral and scan details on the Dashboard.', icon: <i class="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-xl bi bi-person-vcard"></i> },
-    { title: 'Scan Process', description: 'We will contact the patient and handle everything - scheduling, reports, customer service.', icon: <i class="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-xl bi bi-calendar-check"></i> },
-    { title: 'Updates and Scan Results', description: 'You can check updates and scan results on the dashboard.', icon: <i class="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-xl bi bi-text-left"></i> },
+    { title: 'Patient Details', description: 'Add patient, referral and scan details on the Dashboard.', icon: <i className="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-xl bi bi-person-vcard"></i> },
+    { title: 'Scan Process', description: 'We will contact the patient and handle everything - scheduling, reports, customer service.', icon: <i className="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-xl bi bi-calendar-check"></i> },
+    { title: 'Updates and Scan Results', description: 'You can check updates and scan results on the dashboard.', icon: <i className="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-xl bi bi-text-left"></i> },
+];
+
+export const medicalProfiles = [
+    'Create profiles for each family member.', 'Store essential health details like allergies, conditions & medications.', 'Access medical history for better-informed healthcare decisions.'
+];
+
+export const medDocs = [
+    'Upload prescriptions, reports, and test results securely.', 'Organize documents by category and date for quick retrieval.', 'Share files instantly with doctors, hospitals, and caregivers.'
+];
+
+export const globalAccessibility = [
+    'Translate prescriptions into preferred languages instantly.', 'Improve accessibility for non-native speakers and international patients.', 'Reduce misinterpretation of medical instructions.'
+];
+
+export const vitalTracking = [
+    'Record vitals like blood pressure, sugar levels, and heart rate.', 'Get alerts for abnormal readings and trends.', 'Visualize health data with charts and reports.'
+];
+
+export const historyReports = [
+    'Consolidate past medical records into a single view.', 'Generate summary reports for consultations and treatments.', 'Provide doctors with actionable insights for informed decisions.'
+];
+
+export const medCertificates = [
+    'Auto-generate medical certificates for work, insurance, or travel.', 'Download and print certificates anytime as needed.', 'Secure verification to prevent fraud & errors.'
+];
+
+export const dataHandling = [
+    'Define roles for patients, doctors, and caregivers.', 'Grant or restrict access to specific data and features.', 'Protect patient privacy while enabling seamless collaboration.'
 ];

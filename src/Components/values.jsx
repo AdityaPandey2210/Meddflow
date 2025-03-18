@@ -1,6 +1,13 @@
 import Image1 from '../assets/cta.png';
 import Image2 from '../assets/emr.png';
 import Image0 from '../assets/cta1.png';
+import Image3 from '../assets/about1.png';
+import Image4 from '../assets/caseStudy1.jpg';
+import Image5 from '../assets/caseStudy2.jpg';
+import Image6 from '../assets/caseStudy3.jpg';
+import Image7 from '../assets/caseStudy4.jpg';
+import Image8 from '../assets/caseStudy5.jpg';
+import Image9 from '../assets/caseStudy6.jpg';
 
 export const choiceFeatures = [
     { title: 'Expertise Backed by Experience', description: 'With vast experience in healthcare technology, our team delivers deep industry insights and tailored solutions to meet your needs.', icon: <i className="bi bi-person-check-fill text-3xl"></i> },
@@ -116,8 +123,8 @@ export const consulting = [
 ];
 
 export const company = [
-    { title: 'About', route: '' },
-    { title: 'Careers', route: '' },
+    { title: 'About', route: 'about' },
+    { title: 'Careers', route: 'careers' },
     { title: 'Contact', route: 'contact' },
 ];
 
@@ -131,6 +138,12 @@ export const workingSteps = [
     { title: 'Patient Details', description: 'Add patient, referral and scan details on the Dashboard.', icon: <i className="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-xl bi bi-person-vcard"></i> },
     { title: 'Scan Process', description: 'We will contact the patient and handle everything - scheduling, reports, customer service.', icon: <i className="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-xl bi bi-calendar-check"></i> },
     { title: 'Updates and Scan Results', description: 'You can check updates and scan results on the dashboard.', icon: <i className="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-xl bi bi-text-left"></i> },
+];
+
+export const teamMembers = [
+    { name: 'John Doe', title: 'Co-Founder, CEO', bio: 'Lorem ipsum dolor sit.', facebook: 'https://www.facebook.com', insta: 'https://www.instagram.com', linkedin: 'https://www.linkedin.com', image: Image3 },
+    { name: 'John Doe', title: 'Co-Founder, CEO', bio: 'Lorem ipsum dolor sit.', facebook: 'https://www.facebook.com', insta: 'https://www.instagram.com', linkedin: 'https://www.linkedin.com', image: Image3 },
+    { name: 'John Doe', title: 'Co-Founder, CEO', bio: 'Lorem ipsum dolor sit.', facebook: 'https://www.facebook.com', insta: 'https://www.instagram.com', linkedin: 'https://www.linkedin.com', image: Image3 },
 ];
 
 export const medicalProfiles = [
@@ -159,4 +172,27 @@ export const medCertificates = [
 
 export const dataHandling = [
     'Define roles for patients, doctors, and caregivers.', 'Grant or restrict access to specific data and features.', 'Protect patient privacy while enabling seamless collaboration.'
+];
+
+export const valueTiles = [
+    { heading: 'Innovation & Excellence', description: 'We continuously innovate to deliver cutting-edge solutions that enhance healthcare efficiency.', icon: <i className="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] bi bi-person-check-fill"></i> },
+    { heading: 'Integrity & Trust', description: 'We uphold transparency, security, and compliance to protect sensitive healthcare data.', icon: <i className="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] bi bi-person-check-fill"></i> },
+    { heading: 'Patient-Centered Approach', description: 'Our solutions are designed to improve patient care, accessibility, and overall experience.', icon: <i className="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] bi bi-person-check-fill"></i> },
+    { heading: ' Collaboration & Growth', description: 'We work closely with healthcare providers to create scalable and sustainable digital solutions.', icon: <i className="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] bi bi-person-check-fill"></i> },
+];
+
+export const metrics = [
+    { percentage: 50, heading: 'Faster Access to Patient Record' },
+    { percentage: 70, heading: 'Increase in Clients Operational Efficiency' },
+    { percentage: 99.9, heading: 'Generate & View Medical Certificates' },
+    { percentage: 27, heading: 'Cost Savings in Operations' },
+];
+
+export const overviewImpact = [
+    { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image4 },
+    { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image5 },
+    { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image6 },
+    { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image7 },
+    { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image8 },
+    { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image9 },
 ];

@@ -1,7 +1,7 @@
 import Service from '../assets/service.png';
-import { faqs, testimonials, workingSteps } from "./values";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom"
+import { faqs, testimonials, workingSteps } from "./values";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 export function CompanyList() {
     const containerRef = useRef(null);
@@ -79,7 +79,7 @@ export function FeatureTile({ title, description, icon }) {
 export function ContactTile({ heading, value, icon }) {
     return (
         <div className="p-4 md:w-1/3 sm:w-1/2 w-full">
-            <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">{icon}
+            <div className="border border-gray-400 px-4 py-6 rounded-lg">{icon}
                 <h2 className="title-font font-medium text-3xl text-gray-900 mb-2">{heading}</h2>
                 <p className="leading-relaxed">{value}</p>
             </div>
@@ -95,7 +95,7 @@ export function HeroSection({ image, title, description, isButtonAvailable }) {
             <div className="relative z-10 flex items-center justify-center h-full">
                 <div className="text-center">
                     <h1 className="mt-2 text-2xl font-bold text-white md:text-5xl">{title}</h1>
-                    <p className="mt-3 font-medium text-gray-200">{description}</p>
+                    <p className="mt-3 text-md font-medium text-gray-200">{description}</p>
                     {isButtonAvailable
                         ? <button className="mt-7 text-teal-700 bg-white border-0 py-2 px-12 focus:outline-none rounded text-lg">Subscribe to Us</button>
                         : <></>
@@ -313,17 +313,52 @@ export function ProductFeaturesRTL({ image, title, description, features }) {
     )
 }
 
-export function RequestAppointment({ image, title }) {
+export function RequestAppointment({ image, title, isHeadAvailable }) {
     return (
         <section className="mx-auto flex px-5 py-24 md:flex-row flex-col items-center bg-gradient-to-r from-[#159957] to-[#155799]">
             <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
                 <img className="object-cover object-center rounded" src={image} alt="" />
             </div>
             <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-                <p className="w-2/3 text-white text-lg">{title}</p>
-                <h1 className="title-font sm:text-4xl text-3xl my-4 font-bold text-gray-200">Request Your Appointment</h1>
+                <p className="w-2/3 text-white font-semibold text-2xl">{title}</p>
+                {isHeadAvailable
+                    ? <h1 className="title-font sm:text-4xl text-3xl my-4 font-bold text-gray-200">Request Your Appointment</h1>
+                    : <></>
+                }
                 <button className="w-3/4 mt-7 text-teal-700 bg-white border-0 py-2 focus:outline-none rounded-sm text-lg">Subscribe</button>
             </div>
         </section>
+    )
+}
+
+export function TeamTile({ name, title, bio, image, facebook, insta, linkedin }) {
+    return (
+        <div className="p-4 lg:w-1/3 md:w-1/2">
+            <div className="h-full flex flex-col items-center text-center">
+                <img className="flex-shrink-0 rounded-lg w-full h-72 object-cover object-center mb-4" src={image} alt='' />
+                <div className="w-full">
+                    <h2 className="title-font font-medium text-lg text-gray-900">{name}</h2>
+                    <h3 className="text-gray-500 mb-3">{title}</h3>
+                    <p className="mb-4">{bio}</p>
+                    <span className="inline-flex">
+                        <a className="text-gray-500" href={facebook}><i className="bi bi-facebook"></i></a>
+                        <a className="ml-2.5 text-gray-500" href={insta}><i className="bi bi-instagram"></i></a>
+                        <a className="ml-2.5 text-gray-500" href={linkedin}><i className="bi bi-linkedin"></i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export function ValueTile({ icon, heading, description }) {
+    return (
+        <div className="p-4 md:w-1/4 sm:w-1/2 w-full h-64">
+            <div className="bg-white px-4 py-6 rounded-xl h-full">
+                {icon}
+                <h2 className="title-font font-bold text-xl text-black">{heading}</h2>
+                <p className="mt-2 text-md text-gray-900">{description}</p>
+            </div>
+        </div>
     )
 }

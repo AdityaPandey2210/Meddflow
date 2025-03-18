@@ -22,7 +22,7 @@ export function Product() {
             <ProductFeaturesLTR image={Mockup5} title={'Generate & View Medical Certificates'} description={'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.'} features={medCertificates} />
             <ProductFeaturesRTL image={Mockup6} title={'Role-Based Access for Secure Data Handling'} description={'Ensure sensitive medical information is accessible only to authorized users through secure, role-based permissions.'} features={dataHandling} />
             <Working />
-            <RequestAppointment image={Mockup7} title={'A secure, intelligent EMR system designed for efficient patient management.'} />
+            <RequestAppointment image={Mockup7} title={'A secure, intelligent EMR system designed for efficient patient management.'} isHeadAvailable={true} />
         </>
     )
 }

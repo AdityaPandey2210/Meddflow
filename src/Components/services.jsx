@@ -9,7 +9,7 @@ export function Services() {
             <HeroSection image={ServiceImage} title={'Digital Transformation'} description={'Future-proof your healthcare system with cutting-edge technology.'} isButtonAvailable={true} />
             <ServiceCTAs />
             <Working />
-            <RequestAppointment image={Service1} title={'Future-proof your healthcare system with cutting-edge technology.'} />
+            <RequestAppointment image={Service1} title={'Future-proof your healthcare system with cutting-edge technology.'} isHeadAvailable={true} />
             <FAQs />
         </>
     )

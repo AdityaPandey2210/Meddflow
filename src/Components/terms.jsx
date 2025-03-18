@@ -1,3 +1,10 @@
+import { HeroSection } from "./widgets";
+import Image from '../assets/terms.jpg';
+
 export function Terms() {
-    return (<></>);
+    return (
+        <>
+            <HeroSection image={Image} title={'Terms & Conditions'} description={'Last Edited: March 17, 2025.'} />
+        </>
+    );
 }

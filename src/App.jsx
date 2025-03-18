@@ -8,6 +8,7 @@ import { Header } from './Components/header';
 import { Privacy } from './Components/privacy';
 import { Product } from './Components/product';
 import { Contact } from './Components/contact';
+import { Careers } from './Components/careers';
 import { Services } from './Components/services';
 import { PageNotFound } from './Components/notfound';
 import { Consultancy } from './Components/consultancy';
@@ -26,6 +27,7 @@ function AppContent() {
         <Route exact path="/about" render={() => { return <About /> }}></Route>
         <Route exact path="/terms" render={() => { return <Terms /> }}></Route>
         <Route exact path="/product" render={() => { return <Product /> }}></Route>
+        <Route exact path="/careers" render={() => { return <Careers /> }}></Route>
         <Route exact path="/contact" render={() => { return <Contact /> }}></Route>
         <Route exact path="/privacy" render={() => { return <Privacy /> }}></Route>
         <Route exact path="/services" render={() => { return <Services /> }}></Route>

@@ -33,10 +33,8 @@ function HeroSection() {
                         <button className="px-6 py-3 border border-teal-600 text-teal-600 font-medium rounded-md hover:bg-teal-50 transition-colors">Schedule a Demo</button>
                     </div>
                 </div>
-                <div className="w-full md:w-1/2">
-                    <div className="relative">
-                        <img src={HeroImage} alt="" className="w-full h-auto" />
-                    </div>
+                <div className="w-full md:w-1/2 relative">
+                    <img src={HeroImage} alt="" className="w-full h-auto object-cover" />
                 </div>
             </section>
             <CompanyList />
@@ -108,8 +106,8 @@ function Questionnaire() {
                 <span className="text-teal-600">Title</span>
             </h1>
             <p className="text-center text-gray-500 mb-8 px-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
-            {!showResults ? (
-                <>
+            {!showResults
+                ? <>
                     <div className="flex justify-center items-center mb-12">
                         {[1, 2, 3, 4].map((step) => (
                             <React.Fragment key={step}>
@@ -143,7 +141,6 @@ function Questionnaire() {
                         </button>
                     </div>
                 </>
-            )
                 : <div className="transition-opacity duration-500 ease-in-out opacity-100">
                     <h2 className="text-center text-2xl font-bold mb-6">Your Result</h2>
                     {renderResultContent()}

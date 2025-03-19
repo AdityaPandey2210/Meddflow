@@ -25,10 +25,7 @@ function HeroSection() {
             <section className="flex flex-col md:flex-row items-center justify-between py-8 sm:py-12 px-4 sm:px-8 md:pl-10">
                 <div className="w-full md:w-1/2 mb-8 md:mb-0">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl w-full font-bold text-gray-800 mb-2">
-                        Advancing Health Care
-                        <span className="block sm:inline text-3xl sm:text-4xl md:text-5xl font-bold">
-                            Through <span className="text-teal-600">Digital Intelligence</span>
-                        </span>
+                        Advancing Health Care<span className="block sm:inline text-3xl sm:text-4xl md:text-5xl font-bold"> Through <span className="text-teal-600">Digital Intelligence</span></span>
                     </h1>
                     <p className="text-lg sm:text-xl text-gray-700 mt-4 mb-6 sm:mb-8">Intelligent Care, Better Healthcare</p>
                     <div className="flex flex-col sm:flex-row gap-4">

@@ -110,7 +110,7 @@ export const products = [
 ];
 
 export const useCases = [
-    { title: 'Patient Intake', route: '' }
+    { title: 'Patient Intake', route: 'casestudies' }
 ];
 
 export const consulting = [
@@ -195,4 +195,13 @@ export const overviewImpact = [
     { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image7 },
     { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image8 },
     { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image9 },
+];
+
+export const policyTopics = [
+    { id: 'introduction', title: 'Introduction' },
+    { id: 'infoCollection', title: 'Information we collect' },
+    { id: 'infoUsage', title: 'How We Use Your Information' },
+    { id: 'dataSharing', title: 'Data Sharing and Disclosure' },
+    { id: 'international', title: 'International Data Transfer' },
+    { id: 'childPrivacy', title: "Children's Privacy" },
 ];

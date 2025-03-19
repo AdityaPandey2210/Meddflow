@@ -108,7 +108,7 @@ export function HeroSection({ image, title, description, isButtonAvailable }) {
 }
 
 export function FooterSection({ list }) {
-    return <ul className="space-y-3">{list.map((element, index) => (<li key={index}><Link to={`/${element.route}`} className="text-sm hover:text-blue-400">{element.title}</Link></li>))}</ul>
+    return <ul className="space-y-2.5">{list.map((element, index) => (<li key={index}><Link to={`/${element.route}`} className="text-sm hover:text-blue-400">{element.title}</Link></li>))}</ul>
 
 }
 
@@ -158,17 +158,20 @@ export function WorkingSteps({ stepNo, icon, title, description }) {
 export function FAQs() {
     const contentRefs = useRef([]);
     const [openFAQ, setOpenFAQ] = useState(0);
+
     useEffect(() => {
         contentRefs.current = contentRefs.current.slice(0, faqs.length);
     }, []);
+
     const toggleFAQ = (index) => {
         setOpenFAQ(openFAQ === index ? null : index);
     };
+
     return (
-        <div className="w-full max-w-4xl mx-auto py-12 bg-gray-50">
-            <div className="text-center mb-10">
+        <div className="w-full max-w-4xl mx-auto py-8 sm:py-12 bg-gray-50 px-4 sm:px-6">
+            <div className="text-center mb-8 sm:mb-10">
                 <p className="text-green-600 font-medium uppercase mb-1">FAQS</p>
-                <h2 className="text-3xl font-bold">
+                <h2 className="text-2xl sm:text-3xl font-bold">
                     <span className="text-gray-900">Explore </span>
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799]">Common Questions</span>
                 </h2>
@@ -177,22 +180,22 @@ export function FAQs() {
             <div className="space-y-4">
                 {faqs.map((faq, index) => (
                     <div key={index} className="py-2 bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
-                        <button className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onClick={() => toggleFAQ(index)}>
-                            <span className="font-medium text-gray-900">{faq.question}</span>
+                        <button className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex justify-between items-center focus:outline-none" onClick={() => toggleFAQ(index)}>
+                            <span className="font-medium text-sm sm:text-base text-gray-900">{faq.question}</span>
                             <span className="text-gray-400">
                                 {openFAQ === index
-                                    ? <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    ? <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                     </svg>
-                                    : <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    : <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                     </svg>
                                 }
                             </span>
                         </button>
                         <div className="overflow-hidden transition-all duration-300 ease-in-out" style={{ maxHeight: openFAQ === index ? `${contentRefs.current[index]?.scrollHeight}px` : "0px", }}>
-                            <div ref={el => contentRefs.current[index] = el} className="px-6 pb-4">
-                                <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
+                            <div ref={(el) => (contentRefs.current[index] = el)} className="px-4 sm:px-6 pb-3 sm:pb-4">
+                                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
                             </div>
                         </div>
                     </div>

@@ -25,7 +25,7 @@ function ImpactOverview() {
                     <div className="p-7 flex-grow text-start">
                         <h2 className="text-xl font-bold">{title}</h2>
                         <p className="text-sm">{description}</p>
-                        <button className='mt-3'>Read More <i class="bi bi-chevron-right text-sm"></i></button>
+                        <button className='mt-3'>Read More <i className="bi bi-chevron-right text-sm"></i></button>
                     </div>
                 </div>
             </div>

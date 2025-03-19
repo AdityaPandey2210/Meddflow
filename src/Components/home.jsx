@@ -22,15 +22,18 @@ export function Home() {
 function HeroSection() {
     return (
         <>
-            <section className="flex flex-col md:flex-row items-center justify-between py-12 pl-8 md:pl-10">
-                <div className="w-full md:w-1/2 mb-10 md:mb-0">
-                    <h1 className="text-4xl md:text-5xl w-full font-bold text-gray-800 mb-2">Advancing Health Care
-                        <span className="text-4xl md:text-5xl font-bold"> Through <span className="text-teal-600">Digital Intelligence</span></span>
+            <section className="flex flex-col md:flex-row items-center justify-between py-8 sm:py-12 px-4 sm:px-8 md:pl-10">
+                <div className="w-full md:w-1/2 mb-8 md:mb-0">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl w-full font-bold text-gray-800 mb-2">
+                        Advancing Health Care
+                        <span className="block sm:inline text-3xl sm:text-4xl md:text-5xl font-bold">
+                            Through <span className="text-teal-600">Digital Intelligence</span>
+                        </span>
                     </h1>
-                    <p className="text-xl text-gray-700 mt-4 mb-8">Intelligent Care, Better Healthcare</p>
+                    <p className="text-lg sm:text-xl text-gray-700 mt-4 mb-6 sm:mb-8">Intelligent Care, Better Healthcare</p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <button className="px-6 py-3 bg-gradient-to-b from-[#159957] to-[#155799] text-white font-medium rounded-md transition-colors">Get Started</button>
-                        <button className="px-6 py-3 border border-teal-600 text-teal-600 font-medium rounded-md hover:bg-teal-50 transition-colors">Schedule a Demo</button>
+                        <button className="px-5 sm:px-6 py-3 bg-gradient-to-b from-[#159957] to-[#155799] text-white font-medium rounded-md transition-colors">Get Started</button>
+                        <button className="px-5 sm:px-6 py-3 border border-teal-600 text-teal-600 font-medium rounded-md hover:bg-teal-50 transition-colors">Schedule a Demo</button>
                     </div>
                 </div>
                 <div className="w-full md:w-1/2 relative">
@@ -100,52 +103,55 @@ function Questionnaire() {
     };
 
     return (
-        <div className="max-w-3xl mx-auto p-6">
-            <h1 className="text-center text-3xl font-bold mb-2">
+        <div className="max-w-3xl mx-auto p-4 sm:p-6">
+            <h1 className="text-center text-2xl sm:text-3xl font-bold mb-2">
                 <span className="text-indigo-900">Quiz </span>
                 <span className="text-teal-600">Title</span>
             </h1>
-            <p className="text-center text-gray-500 mb-8 px-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+            <p className="text-center text-sm sm:text-base text-gray-500 mb-4 sm:mb-8 px-4 sm:px-12">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
+            </p>
             {!showResults
                 ? <>
-                    <div className="flex justify-center items-center mb-12">
+                    <div className="flex justify-center items-center mb-8 sm:mb-12">
                         {[1, 2, 3, 4].map((step) => (
                             <React.Fragment key={step}>
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step < currentStep
+                                <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center ${step < currentStep
                                     ? 'bg-teal-600 text-white'
                                     : step === currentStep
                                         ? 'bg-teal-600 text-white'
                                         : 'bg-gray-200 text-gray-500'
                                     }`}> {step}
                                 </div>
-                                {step < 4 && <div className={`h-1 w-16 ${step < currentStep ? 'bg-teal-600' : 'bg-gray-200'}`}></div>}
+                                {step < 4 && <div className={`h-1 w-12 sm:w-16 ${step < currentStep ? 'bg-teal-600' : 'bg-gray-200'}`}></div>}
                             </React.Fragment>
                         ))}
                     </div>
                     <div ref={contentRef} className={`transition-opacity duration-500 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
-                        <h2 className="text-center text-lg font-medium mb-6">{currentStep}. {questions[currentStep - 1].text}</h2>
-                        <div className="flex justify-center space-x-8 mb-8">
+                        <h2 className="text-center text-base sm:text-lg font-medium mb-4 sm:mb-6">{currentStep}. {questions[currentStep - 1].text}</h2>
+                        <div className="flex justify-center flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 sm:text-center mb-6 sm:mb-8">
                             {answers.map((answer) => (
                                 <div key={answer} className="flex items-center">
-                                    <input type="checkbox" id={answer} checked={selectedAnswer === answer} onChange={() => setSelectedAnswer(answer)} className="w-5 h-5 border-2 border-gray-300 rounded" />
-                                    <label htmlFor={answer} className="ml-2 text-gray-700">{answer}</label>
+                                    <input type="checkbox" id={answer} checked={selectedAnswer === answer} onChange={() => setSelectedAnswer(answer)} className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-gray-300 rounded" />
+                                    <label htmlFor={answer} className="ml-2 text-sm sm:text-base text-gray-700">{answer}</label>
                                 </div>
                             ))}
                         </div>
                     </div>
                     <div className="flex justify-center">
-                        <button className="flex items-center justify-center px-24 py-3 bg-gradient-to-r from-teal-600 to-blue-800 text-white rounded-md" onClick={handleNext}>Submit Now
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                        <button className="flex items-center justify-center px-16 sm:px-24 py-2 sm:py-3 bg-gradient-to-r from-teal-600 to-blue-800 text-white rounded-md" onClick={handleNext}>
+                            Submit Now
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
                             </svg>
                         </button>
                     </div>
                 </>
                 : <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                    <h2 className="text-center text-2xl font-bold mb-6">Your Result</h2>
+                    <h2 className="text-center text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Your Result</h2>
                     {renderResultContent()}
-                    <div className="flex justify-center mt-8">
-                        <button className="px-6 py-2 bg-gradient-to-r from-teal-600 to-blue-800 text-white rounded-md" onClick={() => { setCurrentStep(1); setSelectedAnswer(''); setScore(0); setShowResults(false); }}>Retake Quiz</button>
+                    <div className="flex justify-center mt-6 sm:mt-8">
+                        <button className="px-4 sm:px-6 py-2 bg-gradient-to-r from-teal-600 to-blue-800 text-white rounded-md" onClick={() => { setCurrentStep(1); setSelectedAnswer(''); setScore(0); setShowResults(false); }}>Retake Quiz</button>
                     </div>
                 </div>
             }

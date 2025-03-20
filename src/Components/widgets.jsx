@@ -94,7 +94,7 @@ export function HeroSection({ image, title, description, isButtonAvailable }) {
             <div className="absolute inset-0 bg-gradient-to-r from-[#155799]/65 to-[#159957]/65"></div>
             <div className="relative z-10 flex items-center justify-center h-full">
                 <div className="text-center">
-                    <h1 className="mt-2 text-2xl font-bold text-white md:text-5xl">{title}</h1>
+                    <h1 className="mt-2 text-2xl font-bold text-white md:text-6xl">{title}</h1>
                     <p className="mt-3 text-md font-medium text-gray-200">{description}</p>
                     {isButtonAvailable
                         ? <button className="mt-7 text-teal-700 bg-white border-0 py-2 px-12 focus:outline-none rounded text-lg">Subscribe to Us</button>
@@ -168,7 +168,7 @@ export function FAQs() {
     };
 
     return (
-        <div className="w-full max-w-4xl mx-auto py-8 sm:py-12 bg-gray-50 px-4 sm:px-6">
+        <div className="w-screen mx-auto py-8 sm:py-12 bg-gray-50 px-16 sm:px-16">
             <div className="text-center mb-8 sm:mb-10">
                 <p className="text-green-600 font-medium uppercase mb-1">FAQS</p>
                 <h2 className="text-2xl sm:text-3xl font-bold">
@@ -361,6 +361,18 @@ export function ValueTile({ icon, heading, description }) {
                 {icon}
                 <h2 className="title-font font-bold text-xl text-black">{heading}</h2>
                 <p className="mt-2 text-md text-gray-900">{description}</p>
+            </div>
+        </div>
+    )
+}
+
+export function WhyJoinUs({ number, title, isPercentage }) {
+    return (
+        <div className="p-0.5 bg-gradient-to-r from-[#159957] to-[#155799] rounded-lg h-40">
+            <div className="w-full h-full items-center text-center justify-center bg-white rounded-lg flex flex-col">
+                <i className="bi bi-person-check-fill bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799] text-4xl"></i>
+                <h1 className="mt-2 text-2xl font-bold">{number} {isPercentage ? '%' : '+'}</h1>
+                <h2 className="mt-1 w-4/5 font-medium">{title}</h2>
             </div>
         </div>
     )

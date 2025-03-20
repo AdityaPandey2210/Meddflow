@@ -1,12 +1,17 @@
-import { testimonials } from './values';
+import { WhyJoinUs } from './widgets';
 import Image from '../assets/careers.jpg';
 import Image1 from '../assets/careers1.jpg';
+import Image2 from '../assets/careers2.jpg';
 import { useEffect, useState } from 'react';
+import { testimonials, whyJoinUs } from './values';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 export function Careers() {
     return (
         <>
             <HeroSection />
+            <OpenPositions />
+            <WhyJoin />
             <EmployeeTestimonials />
             <Life />
         </>
@@ -14,6 +19,8 @@ export function Careers() {
 }
 
 function HeroSection() {
+    const history = useHistory();
+    const handleNav = () => { history.push('/contact'); }
     return (
         <div className="relative w-full h-[35rem] overflow-hidden">
             <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${Image})` }}></div>
@@ -22,10 +29,42 @@ function HeroSection() {
                 <div className="text-center">
                     <h1 className="mt-2 text-2xl font-bold text-white md:text-5xl">Careers</h1>
                     <p className="mt-3 text-md font-medium text-gray-200">Last Edited: March 17, 2025.</p>
-                    <button className="mt-7 text-teal-700 bg-white border-0 py-2 px-12 focus:outline-none rounded text-lg">Get in Touch</button>
+                    <button onClick={handleNav} className="mt-7 text-teal-700 bg-white border-0 py-2 px-12 focus:outline-none rounded text-lg">Get in Touch</button>
                 </div>
             </div>
         </div>
+    )
+}
+
+function OpenPositions() {
+    return (
+        <section className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+            <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900">Open  <span className="bg-gradient-to-r from-[#159957] to-[#155799] text-transparent bg-clip-text"> Positions</span></h1>
+            </div>
+            <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+                <img className="object-cover object-center rounded-lg" src={Image2} alt="" />
+            </div>
+        </section>
+    )
+}
+
+function WhyJoin() {
+    return (
+        <section className="container mx-auto flex px-7 py-24 md:flex-row flex-col items-center">
+            <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                <h1 className="sm:text-4xl text-3xl mb-4 font-bold text-gray-900">
+                    Why Join<span className="bg-gradient-to-r from-[#159957] to-[#155799] text-transparent bg-clip-text"> Meddflow</span>
+                </h1>
+                <p className="mt-2.5 leading-relaxed">We are a team of dreamer and doers. Designers and coders.<br /> We are driven by employee-centric HR policies, best in the<br /> class pay scale, and super talented folks to work with.</p>
+            </div>
+            <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+                <div className="grid grid-cols-2 gap-4 h-full w-full">
+                    {whyJoinUs.map((title, index) => (<WhyJoinUs key={index} number={title.number} title={title.title} isPercentage={title.isPercentage} />))}
+                </div>
+            </div>
+        </section>
+
     )
 }
 

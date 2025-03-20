@@ -1,8 +1,8 @@
-import { teamMembers, valueTiles } from "./values";
 import AboutImage from "../assets/about.jpg";
 import AboutImage1 from "../assets/about2.jpg";
 import AboutImage2 from "../assets/about3.png";
 import AboutImage3 from "../assets/about4.jpg";
+import { teamMembers, valueTiles } from "./values";
 import { HeroSection, TeamTile, ValueTile } from "./widgets";
 
 export function About() {
@@ -41,7 +41,7 @@ function Mission() {
                 <p className="mb-8 leading-relaxed">Our mission at Meddflow is to revolutionize healthcare through cutting-edge digital solutions that enhance efficiency, security, and patient care. We strive to empower healthcare providers with seamless technology that simplifies workflows and improves decision-making. By integrating AI, automation, and cloud-based solutions, we ensure secure and scalable healthcare management.</p>
             </div>
             <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 h-96">
-                <img className="h-full object-cover object-center rounded" src={AboutImage1} alt="" />
+                <img className="h-full object-cover object-center rounded-lg" src={AboutImage1} alt="" />
             </div>
         </section>
     )
@@ -49,7 +49,7 @@ function Mission() {
 
 function Team() {
     return (
-        <section className="container px-5 py-24 mx-auto">
+        <section className="container px-5 py-16 mx-auto">
             <div className="flex flex-col text-center w-full mb-10">
                 <h1 className="sm:text-4xl text-3xl font-bold mb-4 text-gray-900">Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799]">Leadership</span></h1>
                 <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.</p>

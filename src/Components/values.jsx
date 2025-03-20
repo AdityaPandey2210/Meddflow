@@ -205,3 +205,10 @@ export const policyTopics = [
     { id: 'international', title: 'International Data Transfer' },
     { id: 'childPrivacy', title: "Children's Privacy" },
 ];
+
+export const whyJoinUs = [
+    { number: 700, title: 'Engineers & Designers', isPercentage: false },
+    { number: 50, title: 'Digital Healthcare products built', isPercentage: false },
+    { number: 10, title: 'Years of building software Products', isPercentage: false },
+    { number: 50, title: 'Year-on-Year Growth', isPercentage: true },
+];

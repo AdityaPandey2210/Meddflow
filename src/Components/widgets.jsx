@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Service from '../assets/service.png';
 import { useEffect, useRef, useState } from "react";
 import { faqs, testimonials, workingSteps } from "./values";
@@ -64,46 +65,45 @@ export function CompanyList() {
     );
 }
 
-export function FeatureTile({ title, description, icon }) {
+export function FeatureTile({ title, description, icon, delay }) {
     return (
-        <div className="p-4 md:w-1/4 flex flex-col text-center items-center">
-            <div className="w-20 h-20 inline-flex items-center text-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">{icon}</div>
-            <div className="flex-grow">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: delay }} viewport={{ margin: "-50px" }} className="p-4 md:w-1/4 flex flex-col text-center items-center">
+            <motion.div className="w-20 h-20 inline-flex items-center text-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">{icon}</motion.div>
+            <motion.div className="flex-grow">
                 <h2 className="text-gray-900 text-lg title-font font-medium mb-3">{title}</h2>
                 <p className="leading-relaxed text-base">{description}</p>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     )
 }
 
-export function ContactTile({ heading, value, icon }) {
+export function ContactTile({ heading, value, icon, delay }) {
     return (
-        <div className="p-4 md:w-1/3 sm:w-1/2 w-full">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: delay }} className="p-4 md:w-1/3 sm:w-1/2 w-full">
             <div className="border border-gray-400 px-4 py-6 rounded-lg">{icon}
                 <h2 className="title-font font-medium text-3xl text-gray-900 mb-2">{heading}</h2>
                 <p className="leading-relaxed">{value}</p>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
 export function HeroSection({ image, title, description, isButtonAvailable }) {
     return (
         <div className="relative w-full h-[35rem] overflow-hidden">
-            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#155799]/65 to-[#159957]/65"></div>
+            <motion.div initial={{ scale: 1.1, opacity: 0.8 }} whileInView={{ scale: 1, opacity: 1 }} transition={{ duration: 0.75, ease: "easeOut" }} className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}></motion.div>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="absolute inset-0 bg-gradient-to-r from-[#155799]/65 to-[#159957]/65"></motion.div>
             <div className="relative z-10 flex items-center justify-center h-full">
                 <div className="text-center">
-                    <h1 className="mt-2 text-2xl font-bold text-white md:text-6xl">{title}</h1>
-                    <p className="mt-3 text-md font-medium text-gray-200">{description}</p>
+                    <motion.h1 initial={{ opacity: 0, y: -30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="mt-2 text-2xl font-bold text-white md:text-6xl">{title}</motion.h1>
+                    <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }} className="mt-3 text-md font-medium text-gray-200">{description}</motion.p>
                     {isButtonAvailable
-                        ? <button className="mt-7 text-teal-700 bg-white border-0 py-2 px-12 focus:outline-none rounded text-lg">Subscribe to Us</button>
+                        ? <motion.button initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }} whileTap={{ scale: 0.95 }} className="mt-7 text-teal-700 bg-white border-0 py-2 px-12 focus:outline-none rounded text-lg">Subscribe to Us</motion.button>
                         : <></>
                     }
                 </div>
             </div>
         </div>
-
     )
 }
 
@@ -112,37 +112,37 @@ export function FooterSection({ list }) {
 
 }
 
-export function CTATile({ image, title, description }) {
+export function CTATile({ image, title, description, delay }) {
     return (
-        <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: delay }} viewport={{ margin: "-50px" }} className="p-4 md:w-1/3 sm:mb-0 mb-6">
             <div className="rounded-lg h-64 overflow-hidden">
                 <img className="object-cover object-center h-full w-full" src={image} alt="" />
             </div>
             <h2 className="text-xl font-medium title-font text-gray-900 mt-5">{title}</h2>
             <p className="text-base leading-relaxed mt-2">{description}</p>
             <button className="mt-5 inline-flex items-center bg-gradient-to-r from-[#159957] to-[#155799] border-0 px-5 py-3 focus:outline-none rounded-lg text-white">Read More</button>
-        </div>
+        </motion.div>
     )
 }
 
 export function Working() {
     return (
-        <div className="container px-6 py-12 mx-auto text-center">
-            <div className="max-w-lg mx-auto">
-                <h1 className="text-3xl font-semibold text-gray-800 lg:text-4xl">How it <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799]">Works</span></h1>
-                <p className="mt-6 text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-            </div>
-            <div className="flex justify-center mt-10">
-                <img className="object-cover w-full h-108 rounded-xl lg:w-4/5" src={Service} alt='' />
-            </div>
-            <div className="py-5 flex flex-wrap sm:-m-4 -mx-4 -mb-10">{workingSteps.map((step, index) => (<WorkingSteps key={index} stepNo={index} icon={step.icon} title={step.title} description={step.description} />))}</div>
-        </div>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="container px-6 py-12 mx-auto text-center">
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-lg mx-auto">
+                <motion.h1 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-3xl font-semibold text-gray-800 lg:text-4xl">How it <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799]">Works</span></motion.h1>
+                <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }} className="mt-6 text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</motion.p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.4 }} className="flex justify-center mt-10">
+                <motion.img initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.5 }} whileHover={{ scale: 1.02 }} className="object-cover w-full h-108 rounded-xl lg:w-4/5" src={Service} alt='' />
+            </motion.div>
+            <div className="py-5 flex flex-wrap sm:-m-4 -mx-4 -mb-10">{workingSteps.map((step, index) => (<WorkingSteps key={index} stepNo={index} icon={step.icon} title={step.title} description={step.description} delay={0.1 * index + 0.6} />))}</div>
+        </motion.div>
     )
 }
 
-export function WorkingSteps({ stepNo, icon, title, description }) {
+export function WorkingSteps({ stepNo, icon, title, description, delay }) {
     return (
-        <div className="p-4 md:w-1/3 flex flex-col">
+        <div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: delay }} className="p-4 md:w-1/3 flex flex-col">
             <div className="px-2.5 flex justify-between">
                 {icon} <h1 className="text-xl font-semibold p-2 text-end">{stepNo}</h1>
             </div>
@@ -168,21 +168,20 @@ export function FAQs() {
     };
 
     return (
-        <div className="w-screen mx-auto py-8 sm:py-12 bg-gray-50 px-16 sm:px-16">
-            <div className="text-center mb-8 sm:mb-10">
-                <p className="text-green-600 font-medium uppercase mb-1">FAQS</p>
-                <h2 className="text-2xl sm:text-3xl font-bold">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="w-screen mx-auto py-8 sm:py-12 bg-gray-50 px-16 sm:px-16">
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-10">
+                <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-green-600 font-medium uppercase mb-1">FAQS</motion.p>
+                <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }} className="text-2xl sm:text-3xl font-bold">
                     <span className="text-gray-900">Explore </span>
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799]">Common Questions</span>
-                </h2>
-            </div>
-
+                </motion.h2>
+            </motion.div>
             <div className="space-y-4">
                 {faqs.map((faq, index) => (
-                    <div key={index} className="py-2 bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
-                        <button className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex justify-between items-center focus:outline-none" onClick={() => toggleFAQ(index)}>
+                    <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 * index }} whileHover={{ scale: 1.01 }} viewport={{ margin: "-50px" }} className="py-2 bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
+                        <motion.button whileTap={{ scale: 0.98 }} className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex justify-between items-center focus:outline-none" onClick={() => toggleFAQ(index)}>
                             <span className="font-medium text-sm sm:text-base text-gray-900">{faq.question}</span>
-                            <span className="text-gray-400">
+                            <motion.span animate={{ rotate: openFAQ === index ? 180 : 0 }} transition={{ duration: 0.3 }} className="text-gray-400">
                                 {openFAQ === index
                                     ? <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -191,22 +190,23 @@ export function FAQs() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                     </svg>
                                 }
-                            </span>
-                        </button>
-                        <div className="overflow-hidden transition-all duration-300 ease-in-out" style={{ maxHeight: openFAQ === index ? `${contentRefs.current[index]?.scrollHeight}px` : "0px", }}>
+                            </motion.span>
+                        </motion.button>
+                        <motion.div animate={{ maxHeight: openFAQ === index ? `${contentRefs.current[index]?.scrollHeight}px` : "0px", opacity: openFAQ === index ? 1 : 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} className="overflow-hidden">
                             <div ref={(el) => (contentRefs.current[index] = el)} className="px-4 sm:px-6 pb-3 sm:pb-4">
                                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 ))}
             </div>
-        </div>
+        </motion.div>
     );
 }
 
 export function Testimonials() {
     const [currentIndex, setCurrentIndex] = useState(0);
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1);
@@ -223,120 +223,118 @@ export function Testimonials() {
     };
 
     const renderDots = () => {
-        return testimonials.map((_, index) => (
-            <button key={index} onClick={() => setCurrentIndex(index)} className={`w-2.5 h-2.5 mx-1 rounded-full ${currentIndex === index ? "bg-teal-600" : "bg-gray-300"}`} aria-label={`Go to slide ${index + 1}`} />
-        ));
+        return testimonials.map((_, index) => <motion.button key={index} onClick={() => setCurrentIndex(index)} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} className={`w-2.5 h-2.5 mx-1 rounded-full ${currentIndex === index ? "bg-teal-600" : "bg-gray-300"}`} aria-label={`Go to slide ${index + 1}`} />);
     };
 
     return (
-        <div className="w-full bg-gradient-to-r from-blue-50 to-teal-50 py-16 px-4">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="w-full bg-gradient-to-r from-blue-50 to-teal-50 py-16 px-4">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl font-bold text-center mb-12">
+                <motion.h2 initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-3xl font-bold text-center mb-12">
                     <span className="text-navy-900">See What </span>
                     <span className="bg-gradient-to-r from-[#159957] to-[#155799] text-transparent bg-clip-text">Our Users Say!</span>
-                </h2>
-                <div className="relative overflow-hidden">
-                    <div className="transition-transform duration-500 ease-in-out flex" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                </motion.h2>
+                <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="relative overflow-hidden">
+                    <motion.div animate={{ x: `-${currentIndex * 100}%` }} transition={{ duration: 0.5, ease: "easeInOut" }} className="flex">
                         {testimonials.map((testimonial, index) => (
-                            <div key={index} className="w-full flex-shrink-0 px-4">
+                            <motion.div key={index} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1 * index }} className="w-full flex-shrink-0 px-4">
                                 <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-                                    <div className="md:w-2/3">
+                                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 + 0.1 * index }} className="md:w-2/3">
                                         <div className="relative">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="block w-5 h-5 text-teal-600 mb-4" viewBox="0 0 975.036 975.036">
                                                 <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
                                             </svg>
-                                            <p className="text-gray-700 text-lg pl-6 pr-4 relative z-10 mb-6">{testimonial.quote}</p>
+                                            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 + 0.1 * index }} className="text-gray-700 text-lg pl-6 pr-4 relative z-10 mb-6">{testimonial.quote}</motion.p>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="block w-5 h-5 text-teal-600 mb-4 rotate-270" viewBox="0 0 975.036 975.036">
                                                 <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
                                             </svg>
                                         </div>
-                                        <div className="mt-6">
+                                        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 + 0.1 * index }} className="mt-6">
                                             <h3 className="text-xl font-semibold text-gray-900">{testimonial.name}</h3>
                                             <p className="text-gray-600">{testimonial.title}</p>
                                             <div className="mt-2">{renderStars(testimonial.rating)}</div>
-                                        </div>
-                                    </div>
-                                    <div className="md:w-1/3 h-full mt-8 md:mt-0">
-                                        <div className="rounded-lg overflow-hidden shadow-lg">
+                                        </motion.div>
+                                    </motion.div>
+                                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.3 + 0.1 * index }} className="md:w-1/3 h-full mt-8 md:mt-0">
+                                        <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.3 }} className="rounded-lg overflow-hidden shadow-lg">
                                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" className="w-full h-96 object-cover" />
-                                        </div>
-                                    </div>
+                                        </motion.div>
+                                    </motion.div>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
-                </div>
-                <div className="flex justify-center mt-8">{renderDots()}</div>
+                    </motion.div>
+                </motion.div>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.5 }} className="flex justify-center mt-8">{renderDots()}</motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 
 export function ProductFeaturesLTR({ image, title, description, features }) {
     return (
-        <section className="mx-auto flex px-7 py-24 md:flex-row flex-col items-center">
-            <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{title}</h1>
-                <p className="mb-8 leading-relaxed">{description}</p>
-                <div className="flex items-start justify-between">
-                    {features.map((feature, index) => <div key={index} className="px-1.5 md:w-1/3 flex items-start">
-                        <i className="bi bi-check-circle-fill bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799]"></i>
-                        <h2 className="ml-1.5 text-md text-gray-900">{feature}</h2>
-                    </div>
-                    )}
-                </div>
-            </div>
-            <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                <img src={image} className="object-cover object-center rounded" alt="" />
-            </div>
-
-        </section>
+        <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="mx-auto flex px-7 py-24 md:flex-row flex-col items-center">
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                <motion.h1 initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{title}</motion.h1>
+                <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mb-8 leading-relaxed">{description}</motion.p>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="flex items-start justify-between">
+                    {features.map((feature, index) => (
+                        <motion.div key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.1 * index + 0.5 }} className="px-1.5 md:w-1/3 flex items-start">
+                            <i className="bi bi-check-circle-fill bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799]"></i>
+                            <h2 className="ml-1.5 text-md text-gray-900">{feature}</h2>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+                <motion.img initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} whileHover={{ scale: 1.05 }} src={image} className="object-cover object-center rounded" alt="" />
+            </motion.div>
+        </motion.section>
     )
 }
 
 export function ProductFeaturesRTL({ image, title, description, features }) {
     return (
-        <section className="mx-auto flex px-7 py-24 md:flex-row flex-col items-center">
-            <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-                <img src={image} className="object-cover object-center rounded" alt="" />
-            </div>
-            <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-                <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{title}</h1>
-                <p className="mb-8 leading-relaxed">{description}</p>
-                <div className="flex items-start justify-between">
-                    {features.map((feature, index) => <div key={index} className="px-1.5 md:w-1/3 flex items-start">
-                        <i className="bi bi-check-circle-fill bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799]"></i>
-                        <h2 className="ml-1.5 text-md text-gray-900">{feature}</h2>
-                    </div>
-                    )}
-                </div>
-            </div>
-
-        </section>
+        <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="mx-auto flex px-7 py-24 md:flex-row flex-col items-center">
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+                <motion.img initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} whileHover={{ scale: 1.05 }} src={image} className="object-cover object-center rounded" alt="" />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+                <motion.h1 initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{title}</motion.h1>
+                <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mb-8 leading-relaxed">{description}</motion.p>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="flex items-start justify-between">
+                    {features.map((feature, index) => (
+                        <motion.div key={index} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.1 * index + 0.5 }} className="px-1.5 md:w-1/3 flex items-start">
+                            <i className="bi bi-check-circle-fill bg-clip-text text-transparent bg-gradient-to-r from-[#159957] to-[#155799]"></i>
+                            <h2 className="ml-1.5 text-md text-gray-900">{feature}</h2>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </motion.div>
+        </motion.section>
     )
 }
 
 export function RequestAppointment({ image, title, isHeadAvailable }) {
     return (
-        <section className="mx-auto flex px-5 py-24 md:flex-row flex-col items-center bg-gradient-to-r from-[#159957] to-[#155799]">
-            <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-                <img className="object-cover object-center rounded" src={image} alt="" />
-            </div>
-            <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-                <p className="w-2/3 text-white font-semibold text-2xl">{title}</p>
+        <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="mx-auto flex px-5 py-24 md:flex-row flex-col items-center bg-gradient-to-r from-[#159957] to-[#155799]">
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+                <motion.img initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} whileHover={{ scale: 1.05 }} className="object-cover object-center rounded" src={image} alt="" />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+                <motion.p initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="w-2/3 text-white font-semibold text-2xl">{title}</motion.p>
                 {isHeadAvailable
-                    ? <h1 className="title-font sm:text-4xl text-3xl my-4 font-bold text-gray-200">Request Your Appointment</h1>
+                    ? <motion.h1 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="title-font sm:text-4xl text-3xl my-4 font-bold text-gray-200">Request Your Appointment</motion.h1>
                     : <></>
                 }
-                <button className="w-3/4 mt-7 text-teal-700 bg-white border-0 py-2 focus:outline-none rounded-sm text-lg">Subscribe</button>
-            </div>
-        </section>
+                <motion.button initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }} whileTap={{ scale: 0.95 }} className="w-3/4 mt-7 text-teal-700 bg-white border-0 py-2 focus:outline-none rounded-sm text-lg">Subscribe</motion.button>
+            </motion.div>
+        </motion.section>
     )
 }
 
-export function TeamTile({ name, title, bio, image, facebook, insta, linkedin }) {
+export function TeamTile({ name, title, bio, image, facebook, insta, linkedin, delay }) {
     return (
-        <div className="p-4 lg:w-1/3 md:w-1/2">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: delay }} className="p-4 lg:w-1/3 md:w-1/2">
             <div className="h-full flex flex-col items-center text-center">
                 <img className="flex-shrink-0 rounded-lg w-full h-72 object-cover object-center mb-4" src={image} alt='' />
                 <div className="w-full">
@@ -350,19 +348,19 @@ export function TeamTile({ name, title, bio, image, facebook, insta, linkedin })
                     </span>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
-export function ValueTile({ icon, heading, description }) {
+export function ValueTile({ icon, heading, description, delay }) {
     return (
-        <div className="p-4 md:w-1/4 sm:w-1/2 w-full h-64">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: delay }} className="p-4 md:w-1/4 sm:w-1/2 w-full h-64">
             <div className="bg-white px-4 py-6 rounded-xl h-full">
                 {icon}
                 <h2 className="title-font font-bold text-xl text-black">{heading}</h2>
                 <p className="mt-2 text-md text-gray-900">{description}</p>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

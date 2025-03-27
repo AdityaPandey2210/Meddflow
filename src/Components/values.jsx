@@ -93,9 +93,9 @@ export const faqs = [
 ];
 
 export const contactDetails = [
-    { heading: 'Call Us', value: '+91 999999999999', icon: <i className="text-indigo-500 w-12 h-12 mb-3 inline-block text-3xl bi bi-telephone"></i> },
-    { heading: 'Email Us', value: 'example@email.com', icon: <i className="text-indigo-500 w-12 h-12 mb-3 inline-block text-3xl bi bi-envelope-open"></i> },
-    { heading: 'Our Address', value: 'Address', icon: <i className="text-indigo-500 w-12 h-12 mb-3 inline-block text-3xl bi bi-geo-alt"></i> },
+    { heading: 'Call Us', value: '+61 431017898', icon: <i className="text-indigo-500 w-12 h-12 mb-3 inline-block text-3xl bi bi-telephone"></i> },
+    { heading: 'Email Us', value: 'hemant@meddflow.com', icon: <i className="text-indigo-500 w-12 h-12 mb-3 inline-block text-3xl bi bi-envelope-open"></i>, link: 'mailto:hemant@meddflow.com' },
+    { heading: 'Our Address', value: '81 Wellesley, Taylors Lakes Victoria', icon: <i className="text-indigo-500 w-12 h-12 mb-3 inline-block text-3xl bi bi-geo-alt"></i> },
 ];
 
 export const products = [
@@ -129,9 +129,9 @@ export const company = [
 ];
 
 export const service_ctas = [
-    { title: 'Seamless EHR/EMR Integration & Migration', description: 'Seamlessly integrate and migrate electronic health records with minimal disruption. Ensure smooth data transfer while maintaining accuracy and compliance. Enhance interoperability by connecting with existing healthcare systems. Reduce manual data entry and improve efficiency across hospitals and clinics.', image: Image0 },
-    { title: 'AI-Driven Data Analytics for Better Decision-Making', description: 'Harness the power of AI to transform raw medical data into actionable insights. Identify patterns and trends to improve diagnosis and treatment planning. Use predictive analytics for early disease detection and risk assessment. Enhance operational efficiency by analyzing workflow bottlenecks.', image: Image1 },
-    { title: 'Automation of Administrative & Clinical Workflows', description: 'Streamline healthcare operations by automating repetitive administrative tasks. Reduce paperwork and human errors with digitized workflows. Automate appointment scheduling, patient reminders, and billing processes. Enhance clinical efficiency with automated prescription management and reporting.', image: Image2 },
+    { title: 'Seamless EHR/EMR Integration & Migration', description: 'Seamlessly integrate and migrate electronic health records with minimal disruption. Ensure smooth data transfer while maintaining accuracy and compliance. Enhance interoperability by connecting with existing healthcare systems. Reduce manual data entry and improve efficiency across hospitals and clinics.', fullDescription: '', image: Image0 },
+    { title: 'AI-Driven Data Analytics for Better Decision-Making', description: 'Harness the power of AI to transform raw medical data into actionable insights. Identify patterns and trends to improve diagnosis and treatment planning. Use predictive analytics for early disease detection and risk assessment. Enhance operational efficiency by analyzing workflow bottlenecks.', fullDescription: '', image: Image1 },
+    { title: 'Automation of Administrative & Clinical Workflows', description: 'Streamline healthcare operations by automating repetitive administrative tasks. Reduce paperwork and human errors with digitized workflows. Automate appointment scheduling, patient reminders, and billing processes. Enhance clinical efficiency with automated prescription management and reporting.', fullDescription: '', image: Image2 },
 ];
 
 export const workingSteps = [
@@ -212,3 +212,53 @@ export const whyJoinUs = [
     { number: 10, title: 'Years of building software Products', isPercentage: false },
     { number: 50, title: 'Year-on-Year Growth', isPercentage: true },
 ];
+
+export const positions = [
+    { title: 'Data Engineer' },
+    { title: 'Lead Data Engineer' },
+    { title: 'Sales Executives' },
+    { title: 'UI/UX Designers' },
+];
+
+export const positionDetails = {
+    'Data Engineer': {
+        description: 'We are seeking a skilled Data Engineer to join our team. The ideal candidate will have experience in designing, building, and maintaining data pipelines and infrastructure.',
+        requirements: [
+            "Bachelor's degree in Computer Science, Engineering, or related field",
+            '3+ years of experience in data engineering',
+            'Proficiency in SQL and Python',
+            'Experience with cloud platforms (AWS, Azure, or GCP)',
+            'Knowledge of big data technologies (Hadoop, Spark, etc.)'
+        ]
+    },
+    'Lead Data Engineer': {
+        description: 'We are looking for an experienced Lead Data Engineer to oversee our data engineering team and drive our data infrastructure strategy.',
+        requirements: [
+            "Master's degree in Computer Science, Engineering, or related field",
+            '7+ years of experience in data engineering',
+            'Strong leadership and communication skills',
+            'Expert-level knowledge of data modeling and ETL processes',
+            'Experience with machine learning and AI technologies'
+        ]
+    },
+    'Sales Executives': {
+        description: 'Join our dynamic sales team as a Sales Executive. You will be responsible for driving revenue growth by identifying and closing new business opportunities.',
+        requirements: [
+            "Bachelor's degree in Business, Marketing, or related field",
+            '3+ years of B2B sales experience',
+            'Strong communication and negotiation skills',
+            'Experience with CRM software',
+            'Proven track record of meeting or exceeding sales targets'
+        ]
+    },
+    'UI/UX Designers': {
+        description: 'We are seeking creative UI/UX Designers to help create intuitive and visually appealing user interfaces for our products.',
+        requirements: [
+            "Bachelor's degree in Design, HCI, or related field",
+            '3+ years of experience in UI/UX design',
+            'Proficiency in design tools such as Figma, Sketch, or Adobe XD',
+            'Strong portfolio demonstrating user-centered design approach',
+            'Experience with user research and usability testing'
+        ]
+    }
+};

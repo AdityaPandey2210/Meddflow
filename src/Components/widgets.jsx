@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Service from '../assets/service.png';
 import { useEffect, useRef, useState } from "react";
-import { faqs, testimonials, workingSteps } from "./values";
+import { faqs, positionDetails, testimonials, workingSteps } from "./values";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
 export function CompanyList() {
@@ -77,12 +77,12 @@ export function FeatureTile({ title, description, icon, delay }) {
     )
 }
 
-export function ContactTile({ heading, value, icon, delay }) {
+export function ContactTile({ heading, value, icon, delay, link }) {
     return (
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: delay }} className="p-4 md:w-1/3 sm:w-1/2 w-full">
             <div className="border border-gray-400 px-4 py-6 rounded-lg">{icon}
                 <h2 className="title-font font-medium text-3xl text-gray-900 mb-2">{heading}</h2>
-                <p className="leading-relaxed">{value}</p>
+                <a href={link ?? '/contact'} className="leading-relaxed">{value}</a>
             </div>
         </motion.div>
     )
@@ -112,7 +112,7 @@ export function FooterSection({ list }) {
 
 }
 
-export function CTATile({ image, title, description, delay }) {
+export function CTATile({ image, title, description, delay, onReadMore }) {
     return (
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: delay }} viewport={{ margin: "-50px" }} className="p-4 md:w-1/3 sm:mb-0 mb-6">
             <div className="rounded-lg h-64 overflow-hidden">
@@ -120,10 +120,100 @@ export function CTATile({ image, title, description, delay }) {
             </div>
             <h2 className="text-xl font-medium title-font text-gray-900 mt-5">{title}</h2>
             <p className="text-base leading-relaxed mt-2">{description}</p>
-            <button className="mt-5 inline-flex items-center bg-gradient-to-r from-[#159957] to-[#155799] border-0 px-5 py-3 focus:outline-none rounded-lg text-white">Read More</button>
+            <button className="mt-5 inline-flex items-center bg-gradient-to-r from-[#159957] to-[#155799] border-0 px-5 py-3 focus:outline-none rounded-lg text-white" onClick={onReadMore}>Read More</button>
         </motion.div>
-    )
+    );
 }
+
+export function ServiceModal({ isOpen, onClose, children }) {
+    if (!isOpen) return null;
+    return (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center" onClick={onClose}>
+            <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} className="bg-white p-6 rounded-lg max-w-lg w-full m-4" onClick={(e) => e.stopPropagation()}>
+                {children}
+                <button className="mt-4 bg-gradient-to-r from-[#159957] to-[#155799] text-white px-4 py-2 rounded" onClick={onClose}>Close</button>
+            </motion.div>
+        </motion.div>
+    );
+}
+
+export function PositionModal({ isOpen, onClose, children, position }) {
+    if (!isOpen) return null;
+    const details = position ? positionDetails[position] : {};
+    return (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="px-10 py-12 fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center" onClick={onClose}>
+            <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} className="bg-white rounded-lg w-screen h-[95vh] relative overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+                <button onClick={onClose} className="absolute top-4 right-4 text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div className="flex flex-row items-center">
+                    <div className="w-3/4 p-6">{children}</div>
+                    <div className="w-1/4 flex flex-col">
+                        <div className="grid grid-cols-1 grid-rows-2">
+                            <div className="flex items-center p-4 border-l border-b border-gray-200">
+                                <div className="bg-blue-100 p-2 rounded-full mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                        <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div className="text-sm text-gray-500">Location</div>
+                                    <div className="font-medium">Pune</div>
+                                </div>
+                            </div>
+                            <div className="flex items-center p-4 border-l border-gray-200">
+                                <div className="bg-blue-100 p-2 rounded-full mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div className="text-sm text-gray-500">Department</div>
+                                    <div className="font-medium">IT Services</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-1/4 flex flex-col">
+                        <div className="grid grid-cols-1 grid-rows-2">
+                            <div className="flex items-center p-4 border-l border-b border-gray-200">
+                                <div className="bg-blue-100 p-2 rounded-full mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div className="text-sm text-gray-500">Job Type</div>
+                                    <div className="font-medium">Full time</div>
+                                </div>
+                            </div>
+                            <div className="flex items-center p-4 border-l border-gray-200">
+                                <div className="bg-blue-100 p-2 rounded-full mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div className="text-sm text-gray-500">Minimum Experience</div>
+                                    <div className="font-medium">2-5 years</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </motion.div>
+        </motion.div>
+    );
+}
+
 
 export function Working() {
     return (
@@ -265,6 +355,71 @@ export function Testimonials() {
                     </motion.div>
                 </motion.div>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.5 }} className="flex justify-center mt-8">{renderDots()}</motion.div>
+            </div>
+        </motion.div>
+    );
+}
+
+export function EmployeeTestimonials() {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const renderStars = (rating) => {
+        return Array(rating).fill(0).map((_, i) => (
+            <svg key={i} className="w-5 h-5 text-yellow-400 inline-block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+        ));
+    };
+
+    const renderDots = () => {
+        return testimonials.map((_, index) => <motion.button key={index} onClick={() => setCurrentIndex(index)} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} className={`w-2.5 h-2.5 mx-1 rounded-full ${currentIndex === index ? "bg-teal-600" : "bg-gray-300"}`} aria-label={`Go to slide ${index + 1}`} />);
+    };
+
+    return (
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="w-full bg-gradient-to-r from-blue-50 to-teal-50 py-16 px-4">
+            <div className="max-w-6xl mx-auto">
+                <motion.h2 initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-3xl font-bold text-center mb-12">
+                    <span className="text-navy-900">Employee</span>
+                    <span className="bg-gradient-to-r from-[#159957] to-[#155799] text-transparent bg-clip-text"> Testimonials</span>
+                </motion.h2>
+                <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="relative overflow-hidden">
+                    <div animate={{ x: `-${currentIndex * 100}%` }} transition={{ duration: 0.5, ease: "easeInOut" }} className="transition-transform duration-500 ease-in-out flex" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                        {testimonials.map((testimonial, index) => (
+                            <motion.div key={index} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1 * index }} className="w-full flex-shrink-0 px-4">
+                                <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 + 0.1 * index }} className="md:w-2/3">
+                                        <div className="relative">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="block w-5 h-5 text-teal-600 mb-4" viewBox="0 0 975.036 975.036">
+                                                <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                                            </svg>
+                                            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 + 0.1 * index }} className="text-gray-700 text-lg pl-6 pr-4 relative z-10 mb-6">{testimonial.quote}</motion.p>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="block w-5 h-5 text-teal-600 mb-4 rotate-270" viewBox="0 0 975.036 975.036">
+                                                <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                                            </svg>
+                                        </div>
+                                        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 + 0.1 * index }} className="mt-6">
+                                            <h3 className="text-xl font-semibold text-gray-900">{testimonial.name}</h3>
+                                            <p className="text-gray-600">{testimonial.title}</p>
+                                            <div className="mt-2">{renderStars(testimonial.rating)}</div>
+                                        </motion.div>
+                                    </motion.div>
+                                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.3 + 0.1 * index }} className="md:w-1/3 h-full mt-8 md:mt-0">
+                                        <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.3 }} className="rounded-lg overflow-hidden shadow-lg">
+                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" className="w-full h-96 object-cover" />
+                                        </motion.div>
+                                    </motion.div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+                <div className="flex justify-center mt-8">{renderDots()}</div>
             </div>
         </motion.div>
     );

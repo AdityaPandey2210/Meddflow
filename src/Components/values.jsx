@@ -364,6 +364,12 @@ export const overviewImpact = [
         )
     },
 ];
+
+export const productHeroMsgs = [
+    { heading: 'Electronic Medical Records (EMR) & Patient Data', subHeading: 'A secure, intelligent EMR system designed for efficient patient management.' },
+    { heading: 'Electronic Medical Records (EMR) & Patient Data', subHeading: 'A secure, intelligent EMR system designed for efficient patient management.' },
+];
+
 export const policyTopics = [
     { id: 'introduction', title: 'Introduction' },
     { id: 'infoCollection', title: 'Information we collect' },

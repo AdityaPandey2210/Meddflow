@@ -1,7 +1,7 @@
 import Service from '../assets/service.png';
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from 'framer-motion';
-import { faqs, testimonials, workingSteps } from "./values";
+import { faqs, positionDetails, testimonials, workingSteps } from "./values";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
 export function CompanyList() {
@@ -129,8 +129,7 @@ export function ServiceModal({ isOpen, onClose, children }) {
     if (!isOpen) return null;
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center" onClick={onClose}>
-            <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} className="bg-white p-6 rounded-lg max-w-lg w-full m-4" onClick={(e) => e.stopPropagation()}>
-                {children}
+            <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} className="bg-white p-6 rounded-lg max-w-lg w-full m-4" onClick={(e) => e.stopPropagation()}>{children}
                 <button className="mt-4 bg-gradient-to-r from-[#159957] to-[#155799] text-white px-4 py-2 rounded" onClick={onClose}>Close</button>
             </motion.div>
         </motion.div>
@@ -138,8 +137,8 @@ export function ServiceModal({ isOpen, onClose, children }) {
 }
 
 export function PositionModal({ isOpen, onClose, children, position }) {
-    if (!isOpen) return null;
-    //const details = position ? positionDetails[position] : {};
+    if (!isOpen) return null;//eslint-disable-next-line
+    const details = position ? positionDetails[position] : {};
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="px-10 py-12 fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center" onClick={onClose}>
             <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} className="bg-white rounded-lg w-screen h-[95vh] relative overflow-y-auto" onClick={(e) => e.stopPropagation()}>
@@ -448,10 +447,20 @@ export function EmployeeTestimonials() {
 }
 
 export function ProductFeaturesLTR({ image, title, description, features }) {
+    const [isPopupVisible, setPopupVisible] = useState(false);
+
+    const handleTitleClick = () => {
+        setPopupVisible(true);
+    };
+
+    const handleClosePopup = () => {
+        setPopupVisible(false);
+    };
     return (
-        <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="mx-auto flex px-7 py-24 md:flex-row flex-col items-center">
+        <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="mx-auto flex pl-7 py-24 md:flex-row flex-col items-center">
+            {isPopupVisible && <ProductPopup imageSrc={image} title={title} description={description} content={`You clicked on "${title}"`} onClose={handleClosePopup} />}
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                <motion.h1 initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{title}</motion.h1>
+                <motion.button onClick={handleTitleClick} initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 text-start">{title}</motion.button>
                 <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mb-8 leading-relaxed">{description}</motion.p>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="flex items-start justify-between">
                     {features.map((feature, index) => (
@@ -462,7 +471,10 @@ export function ProductFeaturesLTR({ image, title, description, features }) {
                     ))}
                 </motion.div>
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="relative lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+                <div className="absolute top-1/2 left-1/2 text-start transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-80 px-4 py-2 rounded-xl shadow-lg">
+                    <h1 className='text-lg font-bold'>COMING<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500"> SOON</span></h1>
+                </div>
                 <motion.img initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} whileHover={{ scale: 1.05 }} src={image} className="object-cover object-center rounded" alt="" />
             </motion.div>
         </motion.section>
@@ -470,13 +482,24 @@ export function ProductFeaturesLTR({ image, title, description, features }) {
 }
 
 export function ProductFeaturesRTL({ image, title, description, features }) {
+    const [isPopupVisible, setPopupVisible] = useState(false);
+    const handleTitleClick = () => {
+        setPopupVisible(true);
+    };
+
+    const handleClosePopup = () => {
+        setPopupVisible(false);
+    };
     return (
         <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="mx-auto flex px-7 py-24 md:flex-row flex-col items-center">
-            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+            {isPopupVisible && <ProductPopup imageSrc={image} title={title} description={description} content={`You clicked on "${title}"`} onClose={handleClosePopup} />}
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 relative">
+                <div className="absolute text-start top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-80 px-4 py-2 rounded-xl shadow-lg">
+                    <h1 className='text-lg font-bold'>COMING<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500"> SOON</span></h1></div>
                 <motion.img initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} whileHover={{ scale: 1.05 }} src={image} className="object-cover object-center rounded" alt="" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-                <motion.h1 initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{title}</motion.h1>
+                <motion.button onClick={handleTitleClick} initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 text-end">{title}</motion.button>
                 <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mb-8 leading-relaxed">{description}</motion.p>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="flex items-start justify-between">
                     {features.map((feature, index) => (
@@ -490,6 +513,31 @@ export function ProductFeaturesRTL({ image, title, description, features }) {
         </motion.section>
     )
 }
+
+export function ProductPopup({ title, description, imageSrc, onClose }) {
+    return (
+        <div className="p-12 fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white h-[95vh] w-screen p-6 rounded-lg shadow-lg relative overflow-y-auto">
+                <button onClick={onClose} className="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                    <i className="bi bi-x-lg text-xl"></i>
+                </button>
+                <div className="flex flex-col md:flex-row items-center">
+                    <div className="md:w-1/2 w-full px-4">
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{title}</h2>
+                        <p className="text-gray-700 leading-relaxed mb-6">{description}</p>
+                    </div>
+                    <div className="md:w-1/2 w-full px-4 flex justify-center relative">
+                        <div className="absolute top-1/2 left-1/2 text-start transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-80 px-4 py-2 rounded-xl shadow-lg">
+                            <h1 className='text-lg font-bold'>COMING<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500"> SOON</span></h1>
+                        </div>
+                        <img src={imageSrc} alt={title} className="rounded-lg max-w-full" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 
 export function RequestAppointment({ image, title, isHeadAvailable }) {
     return (

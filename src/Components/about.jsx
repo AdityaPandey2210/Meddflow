@@ -72,7 +72,7 @@ function Values() {
                 <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.6 }} className="lg:w-2/3 mx-auto leading-relaxed text-white">We revolutionize digital healthcare with secure, scalable solutions that enhance patient care, streamline workflows, and optimize data management.</motion.p>
             </motion.div>
             <div className="relative z-10 flex flex-wrap -m-4 text-center">
-                {valueTiles.map((value, index) => <ValueTile key={index} heading={value.heading} description={value.description} icon={value.icon} delay={0.1 * index + 0.7} />)}
+                {valueTiles.map((value, index) => <ValueTile key={index} heading={value.heading} description={value.description} icon={value.icon} delay={0.1 * index} />)}
             </div>
         </motion.section>
     )

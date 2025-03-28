@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
 import Service from '../assets/service.png';
 import { useEffect, useRef, useState } from "react";
-import { faqs, positionDetails, testimonials, workingSteps } from "./values";
+import { AnimatePresence, motion } from 'framer-motion';
+import { faqs, testimonials, workingSteps } from "./values";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
 export function CompanyList() {
@@ -139,7 +139,7 @@ export function ServiceModal({ isOpen, onClose, children }) {
 
 export function PositionModal({ isOpen, onClose, children, position }) {
     if (!isOpen) return null;
-    const details = position ? positionDetails[position] : {};
+    //const details = position ? positionDetails[position] : {};
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="px-10 py-12 fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center" onClick={onClose}>
             <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }} className="bg-white rounded-lg w-screen h-[95vh] relative overflow-y-auto" onClick={(e) => e.stopPropagation()}>
@@ -213,6 +213,28 @@ export function PositionModal({ isOpen, onClose, children, position }) {
         </motion.div>
     );
 }
+
+export function OverviewModal({ isOpen, onClose, title, content }) {
+    if (!isOpen) return null;
+
+    return (
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} onClick={onClose}>
+                    <motion.div className="bg-white rounded-lg p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto" initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} transition={{ duration: 0.35 }} onClick={e => e.stopPropagation()}>
+                        <div className="flex justify-between items-center mb-4">
+                            <h2 className="text-2xl font-bold">{title}</h2>
+                            <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+                                <i className="bi bi-x-lg"></i>
+                            </button>
+                        </div>
+                        <div className="modal-content">{content}</div>
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>
+    );
+};
 
 
 export function Working() {

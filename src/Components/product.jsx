@@ -8,6 +8,7 @@ import Mockup5 from '../assets/product6.png';
 import Mockup6 from '../assets/product7.png';
 import Mockup7 from '../assets/product8.png';
 import HeroImage from '../assets/product.png';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import { ProductFeaturesLTR, ProductFeaturesRTL, RequestAppointment, Working } from './widgets';
 import { dataHandling, globalAccessibility, historyReports, medCertificates, medDocs, medicalProfiles, vitalTracking } from './values';
 
@@ -29,12 +30,16 @@ export function Product() {
 }
 
 function ProductHero() {
+    const history = useHistory();
+    const contactUs = () => {
+        history.push('/contact');
+    }
     return (
         <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="bg-gradient-to-r from-[#155799] to-[#159957] mx-auto flex px-7 py-24 md:flex-row flex-col items-center">
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
                 <motion.h1 initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="title-font sm:text-4xl text-3xl mb-4 font-bold text-white">Electronic Medical Records<br /> (EMR) & Patient Data</motion.h1>
                 <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mb-8 text-lg leading-relaxed text-gray-100">A secure, intelligent EMR system designed<br /> for efficient patient management.</motion.p>
-                <motion.button initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} whileHover={{ scale: 1.05, backgroundColor: "#ffffff", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }} whileTap={{ scale: 0.95 }} className="w-1/3 inline-flex text-center items-center text-green-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Schedule a Demo</motion.button>
+                <motion.button onClick={contactUs} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} whileHover={{ scale: 1.05, backgroundColor: "#ffffff", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }} whileTap={{ scale: 0.95 }} className="w-1/3 inline-flex text-center items-center text-green-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Schedule a Demo</motion.button>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
                 <motion.img initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} whileHover={{ scale: 1.03, rotate: 1 }} src={HeroImage} className="object-cover object-center rounded" alt="" />

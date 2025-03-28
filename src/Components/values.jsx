@@ -189,14 +189,181 @@ export const metrics = [
 ];
 
 export const overviewImpact = [
-    { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image4 },
-    { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image5 },
-    { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image6 },
-    { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image7 },
-    { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image8 },
-    { title: 'Generate & View Medical Certificates', description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.', route: '/', image: Image9 },
+    {
+        title: 'Generate & View Medical Certificates',
+        description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.',
+        route: '/',
+        image: Image4,
+        detailedContent: (
+            <div className="space-y-4">
+                <p>Our medical certificate generation system streamlines the entire process from creation to verification.</p>
+                <h3 className="font-bold text-lg">Key Features:</h3>
+                <ul className="list-disc pl-5 space-y-2">
+                    <li>Standardized templates compliant with regulatory requirements</li>
+                    <li>Digital signatures with timestamp verification</li>
+                    <li>Secure storage with controlled access</li>
+                    <li>Batch processing capabilities for healthcare institutions</li>
+                </ul>
+                <p>The system reduces certificate generation time by up to 75% while ensuring complete compliance with medical standards.</p>
+                <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+                    <p className="italic">"This system has transformed how we handle medical documentation, saving us countless hours each week." - Dr. Sarah Johnson, Medical Director</p>
+                </div>
+            </div>
+        )
+    },
+    {
+        title: 'Generate & View Medical Certificates',
+        description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.',
+        route: '/',
+        image: Image5,
+        detailedContent: (
+            <div className="space-y-4">
+                <p>Our certificate management portal provides healthcare professionals with a comprehensive solution for all documentation needs.</p>
+                <div className="grid grid-cols-2 gap-4 my-4">
+                    <div className="bg-green-50 p-3 rounded-lg">
+                        <h4 className="font-semibold">For Doctors</h4>
+                        <p>Quick generation of certificates with pre-filled templates and digital signing capabilities.</p>
+                    </div>
+                    <div className="bg-blue-50 p-3 rounded-lg">
+                        <h4 className="font-semibold">For Patients</h4>
+                        <p>Secure access to their medical certificates with options to download or share electronically.</p>
+                    </div>
+                </div>
+                <h3 className="font-bold text-lg">Integration Capabilities:</h3>
+                <ul className="list-disc pl-5">
+                    <li>Seamless connection with existing EHR/EMR systems</li>
+                    <li>API access for third-party applications</li>
+                    <li>Automated verification processes for employers and institutions</li>
+                </ul>
+            </div>
+        )
+    },
+    {
+        title: 'Generate & View Medical Certificates',
+        description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.',
+        route: '/',
+        image: Image6,
+        detailedContent: (
+            <div className="space-y-4">
+                <p>Our certificate verification system provides a robust solution for validating the authenticity of medical documentation.</p>
+                <div className="border border-gray-200 rounded-lg p-4 my-4">
+                    <h3 className="font-bold text-lg mb-2">Verification Process:</h3>
+                    <ol className="list-decimal pl-5 space-y-2">
+                        <li>QR code or unique identifier scanning</li>
+                        <li>Blockchain-based verification of certificate integrity</li>
+                        <li>Timestamp validation to prevent tampering</li>
+                        <li>Issuer authentication through secure channels</li>
+                    </ol>
+                </div>
+                <p>The system has successfully reduced fraudulent medical certificates by 98% in organizations where implemented.</p>
+                <div className="flex items-center gap-2 mt-4">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <p>Real-time verification status</p>
+                </div>
+                <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                    <p>Immediate flagging of suspicious documents</p>
+                </div>
+            </div>
+        )
+    },
+    {
+        title: 'Generate & View Medical Certificates',
+        description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.',
+        route: '/',
+        image: Image7,
+        detailedContent: (
+            <div className="space-y-4">
+                <p>Our comprehensive analytics dashboard provides insights into certificate usage patterns and compliance metrics.</p>
+                <div className="my-4">
+                    <img src="/path/to/analytics-screenshot.jpg" alt="Analytics Dashboard" className="rounded-lg shadow-md w-full" />
+                    <p className="text-sm text-gray-500 mt-1">Sample analytics dashboard showing certificate generation trends</p>
+                </div>
+                <h3 className="font-bold text-lg">Data Insights Available:</h3>
+                <ul className="list-disc pl-5 space-y-1">
+                    <li>Certificate generation volume by department</li>
+                    <li>Average processing time metrics</li>
+                    <li>Verification request patterns</li>
+                    <li>Compliance audit trails</li>
+                    <li>User activity logs with security monitoring</li>
+                </ul>
+                <p>These insights help organizations optimize their certificate management processes and ensure regulatory compliance.</p>
+            </div>
+        )
+    },
+    {
+        title: 'Generate & View Medical Certificates',
+        description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.',
+        route: '/',
+        image: Image8,
+        detailedContent: (
+            <div className="space-y-4">
+                <p>Our mobile-first approach ensures that healthcare professionals can generate and manage certificates from anywhere.</p>
+                <div className="grid grid-cols-3 gap-3 my-4">
+                    <div className="bg-gray-50 p-3 rounded-lg text-center">
+                        <i className="bi bi-phone text-2xl"></i>
+                        <p className="text-sm mt-1">Mobile App</p>
+                    </div>
+                    <div className="bg-gray-50 p-3 rounded-lg text-center">
+                        <i className="bi bi-tablet text-2xl"></i>
+                        <p className="text-sm mt-1">Tablet Optimized</p>
+                    </div>
+                    <div className="bg-gray-50 p-3 rounded-lg text-center">
+                        <i className="bi bi-laptop text-2xl"></i>
+                        <p className="text-sm mt-1">Desktop Interface</p>
+                    </div>
+                </div>
+                <h3 className="font-bold text-lg">Mobile Features:</h3>
+                <ul className="list-disc pl-5">
+                    <li>Offline certificate generation with sync when online</li>
+                    <li>Camera integration for document scanning</li>
+                    <li>Biometric authentication for enhanced security</li>
+                    <li>Push notifications for certificate status updates</li>
+                </ul>
+                <p className="italic text-sm mt-4">Available on iOS and Android platforms with cross-device synchronization.</p>
+            </div>
+        )
+    },
+    {
+        title: 'Generate & View Medical Certificates',
+        description: 'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.',
+        route: '/',
+        image: Image9,
+        detailedContent: (
+            <div className="space-y-4">
+                <p>Our enterprise solution offers comprehensive certificate management for large healthcare networks and hospital systems.</p>
+                <div className="bg-gray-50 p-4 rounded-lg my-4">
+                    <h3 className="font-bold text-lg mb-2">Enterprise Benefits:</h3>
+                    <div className="grid grid-cols-2 gap-3">
+                        <div className="flex items-start gap-2">
+                            <i className="bi bi-shield-check text-green-500"></i>
+                            <p>Enhanced security protocols</p>
+                        </div>
+                        <div className="flex items-start gap-2">
+                            <i className="bi bi-people text-blue-500"></i>
+                            <p>Multi-tier access controls</p>
+                        </div>
+                        <div className="flex items-start gap-2">
+                            <i className="bi bi-graph-up text-purple-500"></i>
+                            <p>Advanced analytics</p>
+                        </div>
+                        <div className="flex items-start gap-2">
+                            <i className="bi bi-gear text-orange-500"></i>
+                            <p>Custom workflow configuration</p>
+                        </div>
+                    </div>
+                </div>
+                <p>Our system currently manages over 1.2 million certificates annually for healthcare networks across 12 countries.</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                    <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">HIPAA Compliant</span>
+                    <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">GDPR Ready</span>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">HL7 Integration</span>
+                    <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">24/7 Support</span>
+                </div>
+            </div>
+        )
+    },
 ];
-
 export const policyTopics = [
     { id: 'introduction', title: 'Introduction' },
     { id: 'infoCollection', title: 'Information we collect' },

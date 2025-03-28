@@ -8,7 +8,7 @@ import { answerPoints, answers, choiceFeatures, questions } from './values';
 
 export function Home() {
     return (
-        <>
+        <div style={{ overflowX: 'hidden' }}>
             <HeroSection />
             <EMRData />
             <Questionnaire />
@@ -16,7 +16,7 @@ export function Home() {
             <Testimonials />
             <FAQs />
             <ContactUs />
-        </>
+        </div>
     );
 }
 
@@ -27,13 +27,13 @@ function HeroSection() {
         offset: ["start end", "end start"],
     });
 
-    const yText = useTransform(scrollYProgress, [0, 1], [0, -150]);
+    const yText = useTransform(scrollYProgress, [0, 1], [0, -100]);
     const yImage = useTransform(scrollYProgress, [0, 0.5], [0, 0]);
     const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
 
     return (
         <>
-            <section ref={ref} className="flex flex-col md:flex-row items-center justify-between pt-8 sm:pt-12 px-4 sm:px-8 md:pl-10">
+            <section ref={ref} className="flex flex-col md:flex-row items-center justify-between pt-8 sm:pt-16 px-4 sm:px-8 md:pl-10">
                 <motion.div style={{ y: yText }} className="w-full md:w-1/2 mb-8 md:mb-0">
                     <motion.h1 initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="text-3xl sm:text-4xl md:text-5xl w-full font-bold text-gray-800 mb-2">
                         Advancing Health Care<span className="block sm:inline text-3xl sm:text-4xl md:text-5xl font-bold"> Through <span className="text-teal-600">Digital Intelligence</span></span>

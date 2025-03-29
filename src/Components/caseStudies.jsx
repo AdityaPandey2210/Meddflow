@@ -27,7 +27,7 @@ function ImpactOverview() {
             <>
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="px-2.5 py-2.5 lg:w-1/3 md:w-1/2 w-full">
                     <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} className="h-full flex flex-col items-center border-gray-400 border rounded hover:text-white hover:bg-gradient-to-t from-[#159957] to-[#155799]">
-                        <motion.img whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} className="w-full h-48 bg-gray-100 object-cover object-center flex-shrink-0 rounded rounded-b-none" src={image} alt='' />
+                        <motion.img transition={{ duration: 0.3 }} className="w-full h-48 bg-gray-100 object-cover object-center flex-shrink-0 rounded rounded-b-none" src={image} alt='' />
                         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.2 }} className="p-7 flex-grow text-start">
                             <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }} className="text-xl font-bold">{title}</motion.h2>
                             <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="text-sm">{description}</motion.p>

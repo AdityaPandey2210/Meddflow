@@ -11,19 +11,19 @@ import HeroImage from '../assets/product.png';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import { ProductFeaturesLTR, ProductFeaturesRTL, RequestAppointment, Working } from './widgets';
-import { dataHandling, globalAccessibility, historyReports, medCertificates, medDocs, medicalProfiles, productHeroMsgs, vitalTracking } from './values';
+import { dataHandling, globalAccessibility, historyReports, medCertificates, medDocs, medicalProfiles, productFullTexts, productHeroMsgs, vitalTracking } from './values';
 
 export function Product() {
     return (
         <div style={{ overflowX: 'hidden' }}>
             <ProductHero />
-            <ProductFeaturesRTL image={Mockup} title={'Personal & Family Medical Profiles'} description={'Maintain detailed medical records for individuals and families in one secure location. Easily update and access health data anytime, anywhere.'} features={medicalProfiles} />
-            <ProductFeaturesLTR image={Mockup1} title={'Upload, Manage & Share Medical Documents'} description={'A centralized hub for storing and managing medical documents with easy sharing options. Ensures secure and organized access to essential files.'} features={medDocs} />
-            <ProductFeaturesRTL image={Mockup2} title={'Multi-Lingual Prescriptions for Global Accessibility'} description={'Enable patients and doctors to generate and access prescriptions in multiple languages for better communication and understanding.'} features={globalAccessibility} />
-            <ProductFeaturesLTR image={Mockup3} title={'Daily Patient Vitals Tracking'} description={'Track key health indicators daily to monitor progress and detect potential risks early. Helps in proactive healthcare management.'} features={vitalTracking} />
-            <ProductFeaturesRTL image={Mockup4} title={'Comprehensive Patient History & Reports'} description={'Maintain a complete, chronological medical history with detailed reports for better diagnosis and treatment planning.'} features={historyReports} />
-            <ProductFeaturesLTR image={Mockup5} title={'Generate & View Medical Certificates'} description={'Quickly create, manage, and verify medical certificates in a structured and standardized format. Ensures authenticity and compliance.'} features={medCertificates} />
-            <ProductFeaturesRTL image={Mockup6} title={'Role-Based Access for Secure Data Handling'} description={'Ensure sensitive medical information is accessible only to authorized users through secure, role-based permissions.'} features={dataHandling} />
+            <ProductFeaturesRTL image={Mockup} title={'Comprehensive Health Profiles & Family Medical Records.'} description={'A single, secure place for all your health information—organized, accessible, and easy to manage.'} features={medicalProfiles} fullText={productFullTexts[0]} />
+            <ProductFeaturesLTR image={Mockup1} title={'Smart Medical Document Vault & Digital Certification.'} description={'Effortlessly manage prescriptions, lab reports, and official medical documents—all in one place.'} features={medDocs} fullText={productFullTexts[1]} />
+            <ProductFeaturesRTL image={Mockup2} title={'Seamless Scheduling & Hassle-Free Appointments.'} description={'Book, manage, and track doctor appointments with zero stress.'} features={globalAccessibility} fullText={productFullTexts[2]} />
+            <ProductFeaturesLTR image={Mockup3} title={'Virtual Healthcare Anytime, Anywhere.'} description={'Get expert medical advice from the comfort of your home with secure telehealth services.'} features={vitalTracking} fullText={productFullTexts[3]} />
+            <ProductFeaturesRTL image={Mockup4} title={'Instant Prescriptions & Smart Medicine Management.'} description={'Digital prescriptions, easy medication ordering, and automated reminders for better health management.'} features={historyReports} fullText={productFullTexts[4]} />
+            <ProductFeaturesLTR image={Mockup5} title={'Streamlined Payments & Exclusive Healthcare Plans.'} description={'Flexible payment options, subscription plans, and rewards for a stress-free healthcare experience.'} features={medCertificates} fullText={productFullTexts[5]} />
+            <ProductFeaturesRTL image={Mockup6} title={'Engaging Patient Care & Proactive Health Monitoring'} description={'Stay in control of your health journey with smart tracking and personalized care plans.'} features={dataHandling} fullText={productFullTexts[6]} />
             <Working />
             <RequestAppointment image={Mockup7} title={'A secure, intelligent EMR system designed for efficient patient management.'} isHeadAvailable={true} />
         </div>
@@ -33,7 +33,6 @@ export function Product() {
 function ProductHero() {
     const history = useHistory();
     const [currentIndex, setCurrentIndex] = useState(0);
-
     const renderDots = () => {
         return productHeroMsgs.map((_, index) => <motion.button key={index} onClick={() => setCurrentIndex(index)} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} className={`w-2.5 h-2.5 mx-1 rounded-full ${currentIndex === index ? "bg-teal-600" : "bg-gray-300"}`} aria-label={`Go to slide ${index + 1}`} />);
     };
@@ -58,7 +57,10 @@ function ProductHero() {
                     <motion.button onClick={contactUs} whileHover={{ scale: 1.05, backgroundColor: "#ffffff", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }} whileTap={{ scale: 0.95 }} className="w-1/3 inline-flex text-center items-center text-green-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Schedule a Demo</motion.button>
                 </motion.div>
             </AnimatePresence>
-            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="relative lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+                <div className="absolute text-start top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-80 px-4 py-2 rounded-xl shadow-lg">
+                    <h1 className='text-lg font-bold'>COMING<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500"> SOON</span></h1>
+                </div>
                 <motion.img initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} whileHover={{ scale: 1.03, rotate: 1 }} src={HeroImage} className="object-cover object-center rounded" alt="" />
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.5 }} className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center">{renderDots()}</motion.div>

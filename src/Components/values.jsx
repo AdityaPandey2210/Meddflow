@@ -147,31 +147,45 @@ export const teamMembers = [
 ];
 
 export const medicalProfiles = [
-    'Create profiles for each family member.', 'Store essential health details like allergies, conditions & medications.', 'Access medical history for better-informed healthcare decisions.'
+    'Create personal and family medical profiles for seamless health tracking.',
+    'Store and update critical health details like allergies, conditions, and past treatments.',
+    'Access medical history anytime, anywhere to make informed healthcare decisions.',
 ];
 
 export const medDocs = [
-    'Upload prescriptions, reports, and test results securely.', 'Organize documents by category and date for quick retrieval.', 'Share files instantly with doctors, hospitals, and caregivers.'
+    'Securely store prescriptions, lab results, and test reports for instant retrieval.',
+    'Generate verified medical certificates for work, travel, or insurance purposes.',
+    'Digitally authenticate documents to prevent fraud and ensure credibility.',
 ];
 
 export const globalAccessibility = [
-    'Translate prescriptions into preferred languages instantly.', 'Improve accessibility for non-native speakers and international patients.', 'Reduce misinterpretation of medical instructions.'
+    'Book doctor visits for yourself & family members in just a few taps.',
+    'Get real-time notifications & reminders so you never miss an appointment.',
+    'Modify or cancel bookings with an easy refund process.',
 ];
 
 export const vitalTracking = [
-    'Record vitals like blood pressure, sugar levels, and heart rate.', 'Get alerts for abnormal readings and trends.', 'Visualize health data with charts and reports.'
+    'Connect instantly with doctors via chat or video calls.',
+    'Message medical support teams for quick health-related queries.',
+    'Facilitate multi-disciplinary case reviews for complex medical conditions.',
 ];
 
 export const historyReports = [
-    'Consolidate past medical records into a single view.', 'Generate summary reports for consultations and treatments.', 'Provide doctors with actionable insights for informed decisions.'
+    'Receive digital prescriptions instantly after consultations.',
+    'Order medicines online for home delivery from trusted pharmacies.',
+    'Access multi-lingual prescriptions for global accessibility.',
 ];
 
 export const medCertificates = [
-    'Auto-generate medical certificates for work, insurance, or travel.', 'Download and print certificates anytime as needed.', 'Secure verification to prevent fraud & errors.'
+    'Securely pay for consultations, tests & medical services online.',
+    'Choose healthcare subscription plans for regular checkups & preventive care.',
+    'Enjoy discounts & loyalty rewards for frequent patients.',
 ];
 
 export const dataHandling = [
-    'Define roles for patients, doctors, and caregivers.', 'Grant or restrict access to specific data and features.', 'Protect patient privacy while enabling seamless collaboration.'
+    'Get automated follow-up surveys to track progress and improve care.',
+    'Monitor your patient journey across different doctors and departments.',
+    'Access preventive care plans for better long-term health.',
 ];
 
 export const valueTiles = [
@@ -366,8 +380,11 @@ export const overviewImpact = [
 ];
 
 export const productHeroMsgs = [
-    { heading: 'Electronic Medical Records (EMR) & Patient Data', subHeading: 'A secure, intelligent EMR system designed for efficient patient management.' },
-    { heading: 'Electronic Medical Records (EMR) & Patient Data', subHeading: 'A secure, intelligent EMR system designed for efficient patient management.' },
+    { heading: 'Electronic Medical Records (EMR) & Patient Data', subHeading: 'Robust, secure storage and easy access to comprehensive patient histories.' },
+    { heading: 'Practice & Appointment Management', subHeading: 'Optimize your schedule and streamline daily operations effortlessly.' },
+    { heading: 'Telehealth & Virtual Consultations', subHeading: 'Deliver quality care remotely with seamless virtual consultations.' },
+    { heading: 'E-Prescriptions & Medicine Management', subHeading: 'Enhance accuracy and convenience with digital prescriptions and medication tracking.' },
+    { heading: 'Patient Engagement & Post-Care Monitoring', subHeading: 'Foster lasting relationships through proactive patient engagement and follow-up care.' },
 ];
 
 export const policyTopics = [
@@ -435,3 +452,13 @@ export const positionDetails = {
         ]
     }
 };
+
+export const productFullTexts = [
+    "Keeping track of personal and family medical records can be overwhelming. Our Comprehensive Health Profiles allow you to create detailed medical records for yourself and loved ones in one secure space. Each profile includes essential information such as allergies, chronic conditions, immunization history, and past treatments, ensuring that your healthcare providers always have up-to-date details at their fingertips. Whether you're managing a child's vaccination schedule, an elderly parent's medications, or your own health journey, our intuitive platform makes it easy to update, retrieve, and share medical records whenever needed. In case of an emergency, quick access to medical history can be life-saving. With our anytime, anywhere access, you can confidently share accurate health details with doctors and caregivers, leading to better, faster, and more personalized medical care.",
+    "Managing medical documents doesn't have to be stressful. Our Smart Medical Document Vault lets you store, access, and share medical files effortlessly, ensuring you never misplace an important prescription or test report again. Need a verified medical certificate for work, school, travel, or insurance? Our system automatically generates authenticated certificates that can be instantly downloaded and verified by third parties, eliminating the risk of fake or altered documents. Worried about security? Our digital verification feature ensures that all stored documents are tamper-proof and valid, making them easy to authenticate by doctors, employers, and insurers. Say goodbye to paperwork hassles and enjoy a 100% digital, secure, and streamlined document management experience.",
+    "Forget long waiting times and last-minute scheduling issues. Our smart appointment booking system is designed for ease and flexibility. Whether you need a same-day consultation or want to book in advance, our platform lets you find available slots, choose your preferred doctor, and confirm your appointment in seconds. Once booked, you'll receive real-time reminders via notifications and SMS to ensure you never miss an appointment. Need to reschedule? Our hassle-free modification and cancellation system lets you adjust your booking as needed, with a simple and transparent refund process if required. For families, our multi-profile appointment booking feature allows you to schedule and manage medical visits for multiple members—whether it's a routine check-up for your child or a follow-up for an elderly parent.",
+    "Skip the clinic wait times and consult a doctor from anywhere with our secure telehealth services. Whether you need urgent care, a second opinion, or a follow-up consultation, our chat and video consultation options ensure that medical expertise is just a click away. Have a quick question about your prescription or symptoms? Our direct messaging feature allows you to connect with medical support teams instantly. For more complex health concerns, our multi-disciplinary case review system enables collaboration between multiple specialists. This means your case can be reviewed by experts across different medical fields, leading to better diagnoses, more comprehensive treatment plans, and improved patient outcomes.",
+    "Managing medications has never been easier. With our instant e-prescription feature, doctors can send prescriptions directly to your app, ensuring that you never lose an important medical document again. Need to buy medicines? Our platform lets you order directly from trusted pharmacies, with home delivery options that save you trips to the store. For frequent prescriptions, you can set up automated refills, ensuring you never run out of essential medications. For international travelers or patients in multilingual regions, our auto-translation feature converts prescriptions into different languages, making it easier for pharmacists and healthcare providers to understand and dispense the right medication.",
+    "Say goodbye to long billing queues and complicated payment processes. Our secure payment system allows you to pay for consultations, lab tests, and treatments online—quickly and safely. For those who require regular checkups, we offer subscription-based healthcare plans, providing cost-effective packages for routine consultations, preventive screenings, and chronic disease management. These plans are ideal for individuals, families, and senior citizens who want continuous, affordable healthcare. To make healthcare even more accessible, our loyalty rewards program offers discounts and special offers for frequent users, ensuring that long-term patients benefit from added savings.",
+    "We go beyond consultations — we help you stay engaged in your healthcare journey. With automated follow-up surveys, patients can share their feedback and track their progress, helping doctors refine treatments and improve care quality. Our patient journey mapping feature provides a complete overview of your healthcare interactions, ensuring seamless coordination between specialists, labs, and pharmacies. No more confusion or repeated tests—everything is organized for better continuity of care. For those focused on long-term wellness, our preventive care plans offer routine screenings, lifestyle-based health recommendations, and chronic disease management programs, helping you stay ahead of potential health issues.",
+]

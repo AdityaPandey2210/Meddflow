@@ -215,7 +215,6 @@ export function PositionModal({ isOpen, onClose, children, position }) {
 
 export function OverviewModal({ isOpen, onClose, title, content }) {
     if (!isOpen) return null;
-
     return (
         <AnimatePresence>
             {isOpen && (
@@ -446,7 +445,7 @@ export function EmployeeTestimonials() {
     );
 }
 
-export function ProductFeaturesLTR({ image, title, description, features }) {
+export function ProductFeaturesLTR({ image, title, description, features, fullText }) {
     const [isPopupVisible, setPopupVisible] = useState(false);
 
     const handleTitleClick = () => {
@@ -458,7 +457,7 @@ export function ProductFeaturesLTR({ image, title, description, features }) {
     };
     return (
         <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="mx-auto flex pl-7 py-24 md:flex-row flex-col items-center">
-            {isPopupVisible && <ProductPopup imageSrc={image} title={title} description={description} content={`You clicked on "${title}"`} onClose={handleClosePopup} />}
+            {isPopupVisible && <ProductPopup imageSrc={image} title={title} description={fullText} content={`You clicked on "${title}"`} onClose={handleClosePopup} />}
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
                 <motion.button onClick={handleTitleClick} initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 text-start">{title}</motion.button>
                 <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mb-8 leading-relaxed">{description}</motion.p>
@@ -481,7 +480,7 @@ export function ProductFeaturesLTR({ image, title, description, features }) {
     )
 }
 
-export function ProductFeaturesRTL({ image, title, description, features }) {
+export function ProductFeaturesRTL({ image, title, description, features, fullText }) {
     const [isPopupVisible, setPopupVisible] = useState(false);
     const handleTitleClick = () => {
         setPopupVisible(true);
@@ -492,15 +491,16 @@ export function ProductFeaturesRTL({ image, title, description, features }) {
     };
     return (
         <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="mx-auto flex px-7 py-24 md:flex-row flex-col items-center">
-            {isPopupVisible && <ProductPopup imageSrc={image} title={title} description={description} content={`You clicked on "${title}"`} onClose={handleClosePopup} />}
+            {isPopupVisible && <ProductPopup imageSrc={image} title={title} description={fullText} content={`You clicked on "${title}"`} onClose={handleClosePopup} />}
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 relative">
                 <div className="absolute text-start top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-80 px-4 py-2 rounded-xl shadow-lg">
-                    <h1 className='text-lg font-bold'>COMING<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500"> SOON</span></h1></div>
+                    <h1 className='text-lg font-bold'>COMING<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500"> SOON</span></h1>
+                </div>
                 <motion.img initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} whileHover={{ scale: 1.05 }} src={image} className="object-cover object-center rounded" alt="" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
                 <motion.button onClick={handleTitleClick} initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 text-end">{title}</motion.button>
-                <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mb-8 leading-relaxed">{description}</motion.p>
+                <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mb-8 text-end">{description}</motion.p>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="flex items-start justify-between">
                     {features.map((feature, index) => (
                         <motion.div key={index} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.1 * index + 0.5 }} className="px-1.5 md:w-1/3 flex items-start">
@@ -517,7 +517,7 @@ export function ProductFeaturesRTL({ image, title, description, features }) {
 export function ProductPopup({ title, description, imageSrc, onClose }) {
     return (
         <div className="p-12 fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white h-[95vh] w-screen p-6 rounded-lg shadow-lg relative overflow-y-auto">
+            <div className="bg-white h-[95vh] w-screen px-8 py-16 rounded-lg shadow-lg relative overflow-y-auto">
                 <button onClick={onClose} className="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
                     <i className="bi bi-x-lg text-xl"></i>
                 </button>
@@ -530,7 +530,7 @@ export function ProductPopup({ title, description, imageSrc, onClose }) {
                         <div className="absolute top-1/2 left-1/2 text-start transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-80 px-4 py-2 rounded-xl shadow-lg">
                             <h1 className='text-lg font-bold'>COMING<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500"> SOON</span></h1>
                         </div>
-                        <img src={imageSrc} alt={title} className="rounded-lg max-w-full" />
+                        <img src={imageSrc} className="rounded-lg max-w-full" alt='' />
                     </div>
                 </div>
             </div>

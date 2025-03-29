@@ -1,9 +1,9 @@
 import EMR from '../assets/emr.png';
 import { ContactUs } from './contact';
+import { FAQs, FeatureTile } from "./widgets";
 import HeroImage from '../assets/heroVector.png';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { CompanyList, FAQs, FeatureTile, Testimonials } from "./widgets";
 import { answerPoints, answers, choiceFeatures, questions } from './values';
 
 export function Home() {
@@ -13,7 +13,7 @@ export function Home() {
             <EMRData />
             <Questionnaire />
             <WhyChooseUs />
-            <Testimonials />
+            {/* <Testimonials /> */}
             <FAQs />
             <ContactUs />
         </div>
@@ -48,14 +48,14 @@ function HeroSection() {
                     <motion.img initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }} src={HeroImage} alt="" className="w-full h-auto object-cover" />
                 </motion.div>
             </section>
-            <CompanyList />
+            {/* <CompanyList /> */}
         </>
     );
 }
 
 function EMRData() {
     return (
-        <section className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+        <section className="container mx-auto flex px-5 py-28 md:flex-row flex-col items-center">
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} viewport={{ margin: "-100px" }} className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
                 <motion.img whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} className="object-cover object-center rounded" alt="" src={EMR} />
             </motion.div>
@@ -119,7 +119,7 @@ function Questionnaire() {
     };
 
     return (
-        <motion.div ref={contentRef} style={{ y: yContent }} className="max-w-3xl mx-auto p-4 sm:p-6">
+        <motion.div ref={contentRef} style={{ y: yContent }} className="max-w-3xl mx-auto px-4 py-20">
             <motion.h1 initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center text-2xl sm:text-3xl font-bold mb-2">
                 <span className="text-indigo-900">Quiz </span>
                 <span className="text-teal-600">Title</span>
